@@ -82,6 +82,6 @@ class ParticleSystem {
 }
 
 (function(global: typeof window) {
-    const cssParticles = { ParticleSystem: ParticleSystem, Particle: Particle }
-    global.cssParticles = cssParticles
+    const particlex = { ParticleSystem: ParticleSystem, Particle: Particle }
+    global.particlex = particlex
 })(window)
