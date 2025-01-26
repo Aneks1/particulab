@@ -1,7 +1,7 @@
 # Particlex
 A simple and easy-to-use library to create particles in your website.
 
-<a href="https://aneks1.github.io/particlex/" target="_blank"><img src="https://aneks1.github.io/particlex/assets/screenshot.jgp" alt="particlex demo"/></a>
+<a href="https://aneks1.github.io/particlex/" target="_blank"><img src="https://aneks1.github.io/particlex/assets/screenshot.jpg" alt="particlex demo"/></a>
 
 ## Installation
 
