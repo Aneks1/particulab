@@ -1,3 +1,5 @@
+import { HEX, RGBA } from "./structures/colors"
+
 type interval = { min: number, max: number }
 type vectorInterval = { x: interval, y: interval }
 type vector = { x: number, y: number }
@@ -9,6 +11,7 @@ class Particle {
     public diameter = 0
     public life = 0
     public speed: vector = { x: 0, y: 0 }
+    public color: RGBA | HEX = new HEX("#ffffff") 
     public init() {
         const interval = setInterval(() => {
             this.position.x += this.speed.x*60/1000
@@ -37,10 +40,15 @@ class ParticleSystem {
     public diameter: interval = { min: 0, max: 0 }
     public life: interval = { min: 0, max: 0 }
     public speed: vectorInterval = { x: { min: 0, max: 0 }, y: { min: 0, max: 0} }
+    public colors: (RGBA | HEX)[] = []
     public static getRandomNumberInInterval(invterval: interval) {
         const min = Math.ceil(invterval.min);
         const max = Math.floor(invterval.max);
         return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    public static getRandomElementFromArray<T>(arr: T[]): T {
+        const randomIndex = Math.floor(Math.random() * arr.length)
+        return arr[randomIndex]
     }
     public createParticle() {
         const particle = new Particle(this.lastId.toString(), this)
@@ -50,12 +58,12 @@ class ParticleSystem {
         particle.life = ParticleSystem.getRandomNumberInInterval(this.life)
         particle.speed.x = ParticleSystem.getRandomNumberInInterval(this.speed.x)
         particle.speed.y = ParticleSystem.getRandomNumberInInterval(this.speed.y)
+        particle.color = ParticleSystem.getRandomElementFromArray(this.colors)
         this.particles.set(this.lastId.toString(), particle)
         this.lastId++
     }
     public init() {
         const ctx = this.canvas.getContext('2d')
-        ctx!.fillStyle = 'white'
 
         for(let i = 0; i < this.ammount; i++) this.createParticle()
 
@@ -64,6 +72,7 @@ class ParticleSystem {
                 for(let i = this.particles.size; i < this.ammount; i++) this.createParticle()
             ctx?.clearRect(0, 0, this.canvas.width, this.canvas.height)
             this.particles.forEach((particle: Particle) => {
+                ctx!.fillStyle = particle.color.toString()
                 ctx?.beginPath();
                 ctx?.arc(particle.position.x, particle.position.y, particle.diameter / 2, 0, 2 * Math.PI, false);
                 ctx?.closePath()
@@ -81,5 +90,7 @@ class ParticleSystem {
 
 export default {
     Particle,
-    ParticleSystem
+    ParticleSystem,
+    RGBA,
+    HEX
 }

@@ -19,9 +19,9 @@ $ npm i css-particles
 
 ### Create the Particle System
 ```ts
-import cssParticles from 'particulab'
+import particulab from 'particulab'
 const canvas = document.getElementById('canvas') as HTMLCanvasElement
-const system = new cssParticles.ParticleSystem(canvas, { x: canvas.width, y: canvas.height })
+const system = new particulab.ParticleSystem(canvas, { x: canvas.width, y: canvas.height })
 ```
 
 ### Set the ammount of particles to show
@@ -34,6 +34,8 @@ system.ammount = 100
 system.speed = { x: { min: -5, max: 5 }, y: { min: -5, max: 5 } }
 system.diameter = { min: 1, max: 4 },
 system.life = { min: 5, max: 15 }
+system.colors.push(new RGBA(255, 0, 0, 1))
+system.colors.push(new HEX("#00ff00"))
 ```
 
 ### Init the particle system
