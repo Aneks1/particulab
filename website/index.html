@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>particlex - Customizable Particle System</title>
+    <meta name="description" content="particlex is a library to create amazing particle backgrounds with a fully customizable particle system.">
+    <meta name="keywords" content="particlex, particle system, particle engine, particle library, JavaScript particle system, customizable particles, CSS particles, CSS background, background animation">
+    <meta property="og:title" content="particlex - Customizable Particle System">
+    <meta property="og:description" content="particlex is a library to create amazing particle backgrounds with a fully customizable particle system.">
+    <meta property="og:image" content="https://aneks1.github.io/particlex/assets/screenshot.jgp">
+    <meta property="og:url" content="https://aneks1.github.io/particlex/">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <canvas width="1600" height="900" id="container"></canvas>
+
+    <div class="panel_wrapper">
+        <div class="panel">
+            <h1>particlex</h1>
+            <p>Library to create amazing particle backgrounds with a fully customizable particle system.</p>
+            <a class="btn" href="https://github.com/Aneks1/particlex">
+                <span>Github</span>
+            </a>
+            <a class="btn" href="https://www.npmjs.com/package/particlex">
+                <span>npm</span>
+            </a>
+        </div>
+    </div>
+
+    <div id="fps">0 FPS</div>
+    <div id="particles">0 Particles</div>
+
+    <script src="../dist/particlex.umd.js"></script>
+    <script src="./js/index.js"></script>
+    <script defer>
+        const canvas = document.getElementById('container')
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+        const system = new particlex.ParticleSystem(canvas, { x: 1600, y: 900 })
+        system.ammount = 100
+        system.diameter = { min: 1, max: 2 }
+        system.life = { min: 15, max: 20 }
+        system.speed = { x: { min: -2, max: 2 }, y: { min: -2, max: 2 } }
+        system.init()
+
+        const count = document.getElementById('particles')
+        function updateCount(currentTime) {
+            count.innerText = system.particles.size + ' Particles'
+            requestAnimationFrame(updateCount)
+        }
+
+        requestAnimationFrame(updateCount)
+    </script>
+</body>
+</html>

@@ -58,12 +58,10 @@ class ParticleSystem {
         ctx!.fillStyle = 'white'
 
         for(let i = 0; i < this.ammount; i++) this.createParticle()
-            
-        setInterval(() => {
-            if(this.particles.size <= this.ammount) this.createParticle()
-        }, 1000/60)
 
         setInterval(() => {
+            if(this.particles.size < this.ammount)
+                for(let i = this.particles.size; i < this.ammount; i++) this.createParticle()
             ctx?.clearRect(0, 0, this.canvas.width, this.canvas.height)
             this.particles.forEach((particle: Particle) => {
                 ctx?.beginPath();
@@ -81,7 +79,7 @@ class ParticleSystem {
     }
 }
 
-(function(global: typeof window) {
-    const particlex = { ParticleSystem: ParticleSystem, Particle: Particle }
-    global.particlex = particlex
-})(window)
+export default {
+    Particle,
+    ParticleSystem
+}

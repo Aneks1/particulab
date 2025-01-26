@@ -4,7 +4,7 @@
         "module": "CommonJS",
         "downlevelIteration": true,
         "moduleResolution": "node",
-        "outDir": "lib",
+        "outDir": "dist",
         "strict": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,

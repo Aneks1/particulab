@@ -1,2 +1,5 @@
-npm/
 tsconfig.json
+package-lock.json
+vite.config.ts
+node_modules/
+.npmignore

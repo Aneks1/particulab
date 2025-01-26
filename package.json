@@ -1,0 +1,23 @@
+{
+  "name": "particlex",
+  "version": "1.0.5",
+  "main": "dist/particlex.umd.js",
+  "module": "dist/particlex.es.js",
+  "scripts": {
+    "build": "vite build"
+  },
+  "keywords": [
+    "css",
+    "animation",
+    "particles",
+    "stars",
+    "canvas"
+  ],
+  "author": "Aneks",
+  "license": "ISC",
+  "description": "",
+  "types": "./types/index.d.ts",
+  "devDependencies": {
+    "vite": "^6.0.11"
+  }
+}
