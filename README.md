@@ -36,6 +36,10 @@ system.diameter = { min: 1, max: 4 },
 system.life = { min: 5, max: 15 }
 system.colors.push(new RGBA(255, 0, 0, 1))
 system.colors.push(new HEX("#00ff00"))
+system.opacity = particulab.range(0.5, 1)
+
+// Could be either "opacity", "scale" or "opacity-scale"
+system.setFadeOutType('opacity-scale', { duration: 2, targetOpacity: 0, targetScaleFactor: 1 })
 ```
 
 ### Init the particle system

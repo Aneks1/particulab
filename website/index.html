@@ -41,10 +41,12 @@
         canvas.height = window.innerHeight
         const system = new particulab.ParticleSystem(canvas, { x: 1600, y: 900 })
         system.ammount = 100
-        system.diameter = { min: 1, max: 2 }
-        system.life = { min: 15, max: 20 }
-        system.speed = { x: { min: -2, max: 2 }, y: { min: -2, max: 2 } }
+        system.diameter = particulab.range(1, 2)
+        system.life = particulab.range(5, 10)
+        system.speed = { x: particulab.range(-2, 2), y: particulab.range(-2, 2) }
         system.colors.push(new particulab.HEX("ffffff"))
+        system.opacity = particulab.range(0.5, 1)
+        system.setFadeOutType('opacity-scale', { duration: 2, targetOpacity: 0, targetScaleFactor: 5 })
         system.init()
 
         const count = document.getElementById('particles')
