@@ -39,7 +39,7 @@ system.colors.push(new HEX("#00ff00"))
 system.opacity = particulab.range(0.5, 1)
 
 // Could be either "opacity", "scale" or "opacity-scale"
-system.setFadeOutType('opacity-scale', { duration: 2, targetOpacity: 0, targetScaleFactor: 1 })
+system.setFadeOutType('opacity-scale', { duration: 2, opacity: 0, scaleFactor: 1 })
 ```
 
 ### Init the particle system

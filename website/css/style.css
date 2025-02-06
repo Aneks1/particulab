@@ -73,7 +73,7 @@ body {
 }
 
 .panel h1::before {
-    content: "v1.2.0";
+    content: "v1.2.1";
     position: absolute;
     bottom: -1rem;
     width: 100%;

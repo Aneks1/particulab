@@ -4,8 +4,8 @@ export type vector = { x: number, y: number }
 export type fadeTypes = "opacity" | "scale" | "opacity-scale"
 
 export interface FadeOptions { duration: number }
-export interface OpacityFadeOptions extends FadeOptions { targetOpacity: number }
-export interface ScaleFadeOptions extends FadeOptions { targetScaleFactor: number }
+export interface OpacityFadeOptions extends FadeOptions { opacity: number }
+export interface ScaleFadeOptions extends FadeOptions { scaleFactor: number }
 export interface OpacityScaleFadeOptions extends OpacityFadeOptions, ScaleFadeOptions {}
 
 export class Particle {
@@ -15,15 +15,19 @@ export class Particle {
     public diameter: number
     public life: number
     public speed: vector
-    public init(): void
     public color: RGBA | HEX
     public opacity: number
     public fadeOut: {
         type: fadeTypes | null,
         options: OpacityFadeOptions | ScaleFadeOptions | OpacityScaleFadeOptions | null
     }
+    public fadeIn: {
+        type: fadeTypes | null,
+        options: OpacityFadeOptions | ScaleFadeOptions | OpacityScaleFadeOptions | null
+    }
     private deltaDiameter: number
     private deltaOpacity: number
+    public init(): void
     constructor(id: string, parent: ParticleSystem)
 }
 
@@ -49,6 +53,9 @@ export class ParticleSystem {
     public setFadeOutType<T extends fadeTypes>(type: T, options:    T extends "opacity" ? OpacityFadeOptions :
                                                                     T extends "scale" ? ScaleFadeOptions :
                                                                     T extends "opacity-scale" ? OpacityScaleFadeOptions : never): void 
+    public setFadeInType<T extends fadeTypes>(type: T, options:     T extends "opacity" ? OpacityFadeOptions : 
+                                                                    T extends "scale" ? ScaleFadeOptions : 
+                                                                    T extends "opacity-scale" ? OpacityScaleFadeOptions : never): void
     public init(): void
     constructor(canvas: HTMLCanvasElement, size: vector)
 }

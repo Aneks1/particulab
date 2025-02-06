@@ -14,7 +14,7 @@ export default class Particle {
     public life = 0
     public speed: vector = { x: 0, y: 0 }
     public color: RGBA | HEX = new HEX("#ffffff") 
-    public opacity = 1
+    public opacity = 100
 
     private deltaDiameter = 0
     private deltaOpacity = 0
@@ -27,16 +27,24 @@ export default class Particle {
         options: null 
     }
 
+    public fadeIn: {
+        type: fadeTypes | null,
+        options: OpacityFadeOptions | ScaleFadeOptions | OpacityScaleFadeOptions | null
+    } = { 
+        type: null, 
+        options: null 
+    }
+
     public init() {
         if(this.fadeOut.type && this.fadeOut.options) {
             if(this.fadeOut.type == 'opacity' || this.fadeOut.type == 'opacity-scale') {
                 const opt = this.fadeOut.options as OpacityFadeOptions
-                this.deltaOpacity = (opt.targetOpacity - this.opacity) / opt.duration;
+                this.deltaOpacity = (opt.opacity - this.opacity) / opt.duration;
             }
 
             if(this.fadeOut.type == 'scale' || this.fadeOut.type == 'opacity-scale') {
                 const opt = this.fadeOut.options as ScaleFadeOptions
-                this.deltaDiameter = (opt.targetScaleFactor * this.diameter - this.diameter) / opt.duration;
+                this.deltaDiameter = (opt.scaleFactor * this.diameter - this.diameter) / opt.duration;
             }
         }
 
@@ -48,7 +56,7 @@ export default class Particle {
             if(this.fadeOut.type && this.fadeOut.options) {
                 if(this.life <= this.fadeOut.options.duration) {
                     this.opacity += this.deltaOpacity * (1/60)
-                    this.opacity = Math.max(0, Math.min(1, this.opacity))
+                    this.opacity = Math.max(0, Math.min(100, this.opacity))
                     this.diameter += this.deltaDiameter * (1/60)
                     this.diameter = Math.max(0, this.diameter)
                 }
