@@ -1,12 +1,8 @@
 export type interval = { min: number, max: number }
 export type vectorInterval = { x: interval, y: interval }
 export type vector = { x: number, y: number }
-export type fadeTypes = "opacity" | "scale" | "opacity-scale"
 
-export interface FadeOptions { duration: number }
-export interface OpacityFadeOptions extends FadeOptions { opacity: number }
-export interface ScaleFadeOptions extends FadeOptions { scaleFactor: number }
-export interface OpacityScaleFadeOptions extends OpacityFadeOptions, ScaleFadeOptions {}
+export interface FadeOptions { duration: number, opacity?: number, scaleFactor?: number }
 
 export class Particle {
     private parent: ParticleSystem
@@ -17,16 +13,10 @@ export class Particle {
     public speed: vector
     public color: RGBA | HEX
     public opacity: number
-    public fadeOut: {
-        type: fadeTypes | null,
-        options: OpacityFadeOptions | ScaleFadeOptions | OpacityScaleFadeOptions | null
-    }
-    public fadeIn: {
-        type: fadeTypes | null,
-        options: OpacityFadeOptions | ScaleFadeOptions | OpacityScaleFadeOptions | null
-    }
-    private deltaDiameter: number
-    private deltaOpacity: number
+    public fadeOut?: FadeOptions
+    public fadeIn?: FadeOptions
+    private fadeOutHandler?: FadeOutHandler
+    private fadeInHandler?: FadeInHandler
     public init(): void
     constructor(id: string, parent: ParticleSystem)
 }
@@ -43,21 +33,29 @@ export class ParticleSystem {
     public speed: vectorInterval
     public colors: (RGBA | HEX)[]
     public opacity: interval
-    private fadeOut: {
-        type: fadeTypes | null,
-        options: OpacityFadeOptions | ScaleFadeOptions | OpacityScaleFadeOptions | null
-    }
-    public static getRandomNumberInInterval(invterval: interval): number
-    public static getRandomElementFromArray<T>(arr: T[]): T
-    private createParticle(): void
-    public setFadeOutType<T extends fadeTypes>(type: T, options:    T extends "opacity" ? OpacityFadeOptions :
-                                                                    T extends "scale" ? ScaleFadeOptions :
-                                                                    T extends "opacity-scale" ? OpacityScaleFadeOptions : never): void 
-    public setFadeInType<T extends fadeTypes>(type: T, options:     T extends "opacity" ? OpacityFadeOptions : 
-                                                                    T extends "scale" ? ScaleFadeOptions : 
-                                                                    T extends "opacity-scale" ? OpacityScaleFadeOptions : never): void
+    public fadeOut?: FadeOptions
+    public fadeIn?: FadeOptions
     public init(): void
     constructor(canvas: HTMLCanvasElement, size: vector)
+}
+
+export default class FadeHandler {
+    public parent: Particle
+    public options: FadeOptions
+    public deltaSize: number
+    public deltaOpacity: number
+    constructor(parent: Particle, options: FadeOptions)
+}
+
+export class FadeOutHandler extends FadeHandler {
+    constructor(parent: Particle, options: FadeOptions)
+    public calculateDeltas(): void
+}
+
+export class FadeInHandler extends FadeHandler {
+    public initialLife: number
+    constructor(parent: Particle, options: FadeOptions)
+    public calculateDeltas(): void
 }
 
 export class RGBA {

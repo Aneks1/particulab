@@ -31,15 +31,18 @@ system.ammount = 100
 
 ### Set the properties for the particles
 ```ts
-system.speed = { x: { min: -5, max: 5 }, y: { min: -5, max: 5 } }
-system.diameter = { min: 1, max: 4 },
-system.life = { min: 5, max: 15 }
-system.colors.push(new RGBA(255, 0, 0, 1))
-system.colors.push(new HEX("#00ff00"))
-system.opacity = particulab.range(0.5, 1)
+system.size = particulab.range(1, 3)
+system.life = particulab.range(5, 10)
+system.speed = { x: particulab.range(-2, 2), y: particulab.range(-2, 2) }
+system.colors.push(new particulab.HEX("ffffff"))
+system.colors.push(new particulab.RGBA(255, 255, 0, 1))
+system.opacity = particulab.range(50, 100)
+```
 
-// Could be either "opacity", "scale" or "opacity-scale"
-system.setFadeOutType('opacity-scale', { duration: 2, opacity: 0, scaleFactor: 1 })
+### You can set fade types!
+```ts
+system.fadeIn = { duration: 1, opacity: 0, scaleFactor: 0.5 }
+system.fadeOut = { duration: 2, opacity: 0, scaleFactor: 2 }
 ```
 
 ### Init the particle system

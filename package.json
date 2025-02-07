@@ -1,13 +1,13 @@
 {
   "name": "particulab",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "main": "dist/particulab.umd.js",
   "module": "dist/particulab.es.js",
   "scripts": {
     "build": "vite build"
   },
   "keywords": [
-    "css",
+    "paticle system",
     "animation",
     "particles",
     "stars",
