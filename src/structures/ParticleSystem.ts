@@ -14,7 +14,7 @@ export default class ParticleSystem {
     private lastId = 0
 
     public deltaTime = 1000/60
-    public ammount = 0
+    public amount = 0
     public particles: Map<string, Particle> = new Map()
     public size: interval = range(1, 5)
     public life: interval = range(10, 15)
@@ -56,11 +56,11 @@ export default class ParticleSystem {
     public init() {
         const ctx = this.canvas.getContext('2d')
 
-        for(let i = 0; i < this.ammount; i++) this.createParticle()
+        for(let i = 0; i < this.amount; i++) this.createParticle()
 
         setInterval(() => {
-            if(this.particles.size < this.ammount)
-                for(let i = this.particles.size; i < this.ammount; i++) this.createParticle()
+            if(this.particles.size < this.amount)
+                for(let i = this.particles.size; i < this.amount; i++) this.createParticle()
             ctx?.clearRect(0, 0, this.canvas.width, this.canvas.height)
             this.particles.forEach((particle: Particle) => {
                 ctx!.fillStyle = particle.color.toString()

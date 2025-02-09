@@ -26,7 +26,7 @@ const system = new particulab.ParticleSystem(canvas, { x: canvas.width, y: canva
 
 ### Set the ammount of particles to show
 ```ts
-system.ammount = 100
+system.amount = 100
 ```
 
 ### Set the properties for the particles

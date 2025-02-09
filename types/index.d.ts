@@ -26,7 +26,7 @@ export class ParticleSystem {
     private size: vector
     private lastId: number
     public deltaTime: number
-    public ammount: number
+    public amount: number
     public particles: Map<string, Particle>
     public diameter: interval
     public life: interval
