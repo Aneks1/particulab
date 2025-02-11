@@ -24,8 +24,8 @@ export default class Particle {
      
     public init() {
 
-        if(this.fadeOut && (this.fadeOut.opacity || this.fadeOut.scaleFactor)) this.fadeOutHandler = new FadeOutHandler(this, this.fadeOut)
-        if(this.fadeIn && (this.fadeIn.opacity || this.fadeIn.scaleFactor)) this.fadeInHandler = new FadeInHandler(this, this.fadeIn)
+        if(this.fadeOut && (this.fadeOut.opacity != undefined || this.fadeOut.scaleFactor != undefined)) this.fadeOutHandler = new FadeOutHandler(this, this.fadeOut)
+        if(this.fadeIn && (this.fadeIn.opacity != undefined || this.fadeIn.scaleFactor != undefined)) this.fadeInHandler = new FadeInHandler(this, this.fadeIn)
 
         this.opacity = this.fadeIn?.opacity != undefined ? this.fadeIn?.opacity : Math.max(0, Math.min(100, this.opacity))
         this.size = this.fadeIn?.scaleFactor != undefined ? this.fadeIn?.scaleFactor : Math.max(0, this.size)

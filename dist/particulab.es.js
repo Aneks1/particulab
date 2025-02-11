@@ -1,17 +1,17 @@
 var g = Object.defineProperty;
-var x = (s, t, i) => t in s ? g(s, t, { enumerable: !0, configurable: !0, writable: !0, value: i }) : s[t] = i;
-var e = (s, t, i) => x(s, typeof t != "symbol" ? t + "" : t, i);
+var x = (a, t, i) => t in a ? g(a, t, { enumerable: !0, configurable: !0, writable: !0, value: i }) : a[t] = i;
+var e = (a, t, i) => x(a, typeof t != "symbol" ? t + "" : t, i);
 class u {
-  constructor(t, i, a, o) {
+  constructor(t, i, s, o) {
     e(this, "red");
     e(this, "green");
     e(this, "blue");
     e(this, "alpha");
-    if (this.red = t, this.green = i, this.blue = a, this.alpha = o, t > 255 || t < 0 || i > 255 || i < 0 || a > 255 || a < 0 || o > 1 || o < 0) throw new TypeError("Invalid rgba color.");
+    if (this.red = t, this.green = i, this.blue = s, this.alpha = o, t > 255 || t < 0 || i > 255 || i < 0 || s > 255 || s < 0 || o > 1 || o < 0) throw new TypeError("Invalid rgba color.");
   }
   toHex() {
-    const t = this._componentToHex(this.red), i = this._componentToHex(this.green), a = this._componentToHex(this.blue);
-    return new r(`#${t}${i}${a}`);
+    const t = this._componentToHex(this.red), i = this._componentToHex(this.green), s = this._componentToHex(this.blue);
+    return new r(`#${t}${i}${s}`);
   }
   _componentToHex(t) {
     const i = t.toString(16);
@@ -27,8 +27,8 @@ class r {
     t[0] === "#" && (t = t.slice(1)), t.length === 3 && (t = t.split("").map((i) => i + i).join("")), this.hex = t;
   }
   toRGB() {
-    const t = parseInt(this.hex.slice(0, 2), 16), i = parseInt(this.hex.slice(2, 4), 16), a = parseInt(this.hex.slice(4, 6), 16);
-    return new u(t, i, a, 1);
+    const t = parseInt(this.hex.slice(0, 2), 16), i = parseInt(this.hex.slice(2, 4), 16), s = parseInt(this.hex.slice(4, 6), 16);
+    return new u(t, i, s, 1);
   }
   toString() {
     return `#${this.hex}`;
@@ -49,12 +49,12 @@ class I extends d {
     super(t, i), this.calculateDeltas();
   }
   calculateDeltas() {
-    this.options.opacity != null && (this.deltaOpacity = (this.options.opacity - this.parent.opacity) / this.options.duration), this.options.scaleFactor != null && (this.deltaSize = (this.options.scaleFactor * this.parent.size - this.parent.size) / this.options.duration);
+    this.options.opacity != null && (this.deltaOpacity = (this.options.opacity - this.parent.opacity) / this.options.duration), this.options.scaleFactor != null && (this.deltaSize = (this.options.scaleFactor * this.parent.size - this.parent.size) / this.options.duration), console.log(this);
   }
 }
 class m extends d {
-  constructor(i, a) {
-    super(i, a);
+  constructor(i, s) {
+    super(i, s);
     e(this, "initialLife");
     this.calculateDeltas(), this.initialLife = this.parent.life;
   }
@@ -80,16 +80,16 @@ class y {
     this.parent = i, this.id = t;
   }
   init() {
-    var i, a, o, l;
-    this.fadeOut && (this.fadeOut.opacity || this.fadeOut.scaleFactor) && (this.fadeOutHandler = new I(this, this.fadeOut)), this.fadeIn && (this.fadeIn.opacity || this.fadeIn.scaleFactor) && (this.fadeInHandler = new m(this, this.fadeIn)), this.opacity = ((i = this.fadeIn) == null ? void 0 : i.opacity) != null ? (a = this.fadeIn) == null ? void 0 : a.opacity : Math.max(0, Math.min(100, this.opacity)), this.size = ((o = this.fadeIn) == null ? void 0 : o.scaleFactor) != null ? (l = this.fadeIn) == null ? void 0 : l.scaleFactor : Math.max(0, this.size), this.life = Math.max(0, this.life);
+    var i, s, o, l;
+    this.fadeOut && (this.fadeOut.opacity != null || this.fadeOut.scaleFactor != null) && (this.fadeOutHandler = new I(this, this.fadeOut)), this.fadeIn && (this.fadeIn.opacity != null || this.fadeIn.scaleFactor != null) && (this.fadeInHandler = new m(this, this.fadeIn)), this.opacity = ((i = this.fadeIn) == null ? void 0 : i.opacity) != null ? (s = this.fadeIn) == null ? void 0 : s.opacity : Math.max(0, Math.min(100, this.opacity)), this.size = ((o = this.fadeIn) == null ? void 0 : o.scaleFactor) != null ? (l = this.fadeIn) == null ? void 0 : l.scaleFactor : Math.max(0, this.size), this.life = Math.max(0, this.life);
     const t = setInterval(() => {
       var c, f, p;
       this.position.x += this.speed.x * 60 / 1e3, this.position.y -= this.speed.y * 60 / 1e3, this.fadeIn && this.fadeInHandler && this.life >= this.fadeInHandler.initialLife - this.fadeIn.duration && (this.opacity += ((c = this.fadeInHandler) == null ? void 0 : c.deltaOpacity) * (1 / 60), this.opacity = Math.max(0, Math.min(100, this.opacity)), this.size += this.fadeInHandler.deltaSize * (1 / 60), this.size = Math.max(0, this.size)), this.fadeOut && this.fadeOutHandler && this.life <= ((f = this.fadeOut) == null ? void 0 : f.duration) && (this.opacity += ((p = this.fadeOutHandler) == null ? void 0 : p.deltaOpacity) * (1 / 60), this.opacity = Math.max(0, Math.min(100, this.opacity)), this.size += this.fadeOutHandler.deltaSize * (1 / 60), this.size = Math.max(0, this.size)), this.life -= 1 / 60, this.life <= 0 && (clearInterval(t), this.parent.particles.delete(this.id));
     }, this.parent.deltaTime);
   }
 }
-function h(s, t) {
-  return { min: s, max: t };
+function h(a, t) {
+  return { min: a, max: t };
 }
 class n {
   constructor(t, i) {
@@ -109,8 +109,8 @@ class n {
     this.canvas = t, this.canvasSize = i, t.width = i.x, t.height = i.y;
   }
   static getRandomNumberInInterval(t) {
-    const i = Math.ceil(t.min), a = Math.floor(t.max);
-    return Math.floor(Math.random() * (a - i + 1)) + i;
+    const i = Math.ceil(t.min), s = Math.floor(t.max);
+    return Math.floor(Math.random() * (s - i + 1)) + i;
   }
   static getRandomElementFromArray(t) {
     const i = Math.floor(Math.random() * t.length);

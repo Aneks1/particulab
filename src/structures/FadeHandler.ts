@@ -22,6 +22,7 @@ export class FadeOutHandler extends FadeHandler {
     public calculateDeltas() {
         if(this.options.opacity != undefined) this.deltaOpacity = (this.options.opacity - this.parent.opacity) / this.options.duration;
         if(this.options.scaleFactor != undefined) this.deltaSize = (this.options.scaleFactor * this.parent.size - this.parent.size) / this.options.duration;
+        console.log(this)
     }
 }
 
