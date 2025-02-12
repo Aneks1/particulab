@@ -23,12 +23,12 @@ export class Particle {
 
 export class ParticleSystem {
     private canvas: HTMLCanvasElement
-    private size: vector
+    private canvasSize: vector
     private lastId: number
     public deltaTime: number
     public amount: number
     public particles: Map<string, Particle>
-    public diameter: interval
+    public size: interval
     public life: interval
     public speed: vectorInterval
     public colors: (RGBA | HEX)[]
@@ -39,7 +39,7 @@ export class ParticleSystem {
     constructor(canvas: HTMLCanvasElement, size: vector)
 }
 
-export default class FadeHandler {
+export class FadeHandler {
     public parent: Particle
     public options: FadeOptions
     public deltaSize: number

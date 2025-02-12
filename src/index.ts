@@ -1,17 +1,7 @@
-import HEX from "./structures/Colors/HEX"
-import RGBA from "./structures/Colors/RGBA"
-import Particle from "./structures/Particle"
-import ParticleSystem from "./structures/ParticleSystem"
-import range from "./utils/range"
-import FadeHandler, { FadeInHandler, FadeOutHandler } from "./structures/FadeHandler"
-
-export default {
-    Particle,
-    ParticleSystem,
-    RGBA,
-    HEX,
-    range,
-    FadeHandler,
-    FadeInHandler,
-    FadeOutHandler
-}
+export { default as HEX } from "./structures/Colors/HEX"
+export { default as RGBA } from "./structures/Colors/RGBA"
+export { default as Particle } from "./structures/Particle"
+export { default as ParticleSystem } from "./structures/ParticleSystem"
+export { default as range } from "./utils/range"
+export { default as FadeHandler } from "./structures/FadeHandler"
+export { FadeInHandler, FadeOutHandler } from "./structures/FadeHandler"

@@ -1,17 +1,17 @@
-var g = Object.defineProperty;
-var x = (a, t, i) => t in a ? g(a, t, { enumerable: !0, configurable: !0, writable: !0, value: i }) : a[t] = i;
-var e = (a, t, i) => x(a, typeof t != "symbol" ? t + "" : t, i);
-class u {
-  constructor(t, i, s, o) {
+var u = Object.defineProperty;
+var I = (s, t, i) => t in s ? u(s, t, { enumerable: !0, configurable: !0, writable: !0, value: i }) : s[t] = i;
+var e = (s, t, i) => I(s, typeof t != "symbol" ? t + "" : t, i);
+class m {
+  constructor(t, i, a, o) {
     e(this, "red");
     e(this, "green");
     e(this, "blue");
     e(this, "alpha");
-    if (this.red = t, this.green = i, this.blue = s, this.alpha = o, t > 255 || t < 0 || i > 255 || i < 0 || s > 255 || s < 0 || o > 1 || o < 0) throw new TypeError("Invalid rgba color.");
+    if (this.red = t, this.green = i, this.blue = a, this.alpha = o, t > 255 || t < 0 || i > 255 || i < 0 || a > 255 || a < 0 || o > 1 || o < 0) throw new TypeError("Invalid rgba color.");
   }
   toHex() {
-    const t = this._componentToHex(this.red), i = this._componentToHex(this.green), s = this._componentToHex(this.blue);
-    return new r(`#${t}${i}${s}`);
+    const t = this._componentToHex(this.red), i = this._componentToHex(this.green), a = this._componentToHex(this.blue);
+    return new r(`#${t}${i}${a}`);
   }
   _componentToHex(t) {
     const i = t.toString(16);
@@ -27,34 +27,34 @@ class r {
     t[0] === "#" && (t = t.slice(1)), t.length === 3 && (t = t.split("").map((i) => i + i).join("")), this.hex = t;
   }
   toRGB() {
-    const t = parseInt(this.hex.slice(0, 2), 16), i = parseInt(this.hex.slice(2, 4), 16), s = parseInt(this.hex.slice(4, 6), 16);
-    return new u(t, i, s, 1);
+    const t = parseInt(this.hex.slice(0, 2), 16), i = parseInt(this.hex.slice(2, 4), 16), a = parseInt(this.hex.slice(4, 6), 16);
+    return new m(t, i, a, 1);
   }
   toString() {
     return `#${this.hex}`;
   }
 }
-class d {
+class p {
   constructor(t, i) {
     e(this, "parent");
     e(this, "options");
     e(this, "deltaSize", 0);
     e(this, "deltaOpacity", 0);
-    if (!i.opacity && !i.scaleFactor) throw new TypeError("Can not create a FadeHandler with opacity and scaleFactor both undefined .");
+    if (i.opacity == null && i.scaleFactor == null) throw new TypeError("Can not create a FadeHandler with opacity and scaleFactor both undefined .");
     this.parent = t, this.options = i;
   }
 }
-class I extends d {
+class y extends p {
   constructor(t, i) {
     super(t, i), this.calculateDeltas();
   }
   calculateDeltas() {
-    this.options.opacity != null && (this.deltaOpacity = (this.options.opacity - this.parent.opacity) / this.options.duration), this.options.scaleFactor != null && (this.deltaSize = (this.options.scaleFactor * this.parent.size - this.parent.size) / this.options.duration), console.log(this);
+    this.options.opacity != null && (this.deltaOpacity = (this.options.opacity - this.parent.opacity) / this.options.duration), this.options.scaleFactor != null && (this.deltaSize = (this.options.scaleFactor * this.parent.size - this.parent.size) / this.options.duration);
   }
 }
-class m extends d {
-  constructor(i, s) {
-    super(i, s);
+class g extends p {
+  constructor(i, a) {
+    super(i, a);
     e(this, "initialLife");
     this.calculateDeltas(), this.initialLife = this.parent.life;
   }
@@ -62,7 +62,7 @@ class m extends d {
     this.options.opacity != null && (this.deltaOpacity = (this.parent.opacity - this.options.opacity) / this.options.duration), this.options.scaleFactor != null && (this.deltaSize = (this.parent.size - this.options.scaleFactor * this.parent.size) / this.options.duration);
   }
 }
-class y {
+class x {
   constructor(t, i) {
     e(this, "parent");
     e(this, "id");
@@ -80,16 +80,16 @@ class y {
     this.parent = i, this.id = t;
   }
   init() {
-    var i, s, o, l;
-    this.fadeOut && (this.fadeOut.opacity != null || this.fadeOut.scaleFactor != null) && (this.fadeOutHandler = new I(this, this.fadeOut)), this.fadeIn && (this.fadeIn.opacity != null || this.fadeIn.scaleFactor != null) && (this.fadeInHandler = new m(this, this.fadeIn)), this.opacity = ((i = this.fadeIn) == null ? void 0 : i.opacity) != null ? (s = this.fadeIn) == null ? void 0 : s.opacity : Math.max(0, Math.min(100, this.opacity)), this.size = ((o = this.fadeIn) == null ? void 0 : o.scaleFactor) != null ? (l = this.fadeIn) == null ? void 0 : l.scaleFactor : Math.max(0, this.size), this.life = Math.max(0, this.life);
+    var i, a, o, d;
+    this.fadeOut && (this.fadeOut.opacity != null || this.fadeOut.scaleFactor != null) && (this.fadeOutHandler = new y(this, this.fadeOut)), this.fadeIn && (this.fadeIn.opacity != null || this.fadeIn.scaleFactor != null) && (this.fadeInHandler = new g(this, this.fadeIn)), this.opacity = ((i = this.fadeIn) == null ? void 0 : i.opacity) != null ? (a = this.fadeIn) == null ? void 0 : a.opacity : Math.max(0, Math.min(100, this.opacity)), this.size = ((o = this.fadeIn) == null ? void 0 : o.scaleFactor) != null ? (d = this.fadeIn) == null ? void 0 : d.scaleFactor : Math.max(0, this.size), this.life = Math.max(0, this.life);
     const t = setInterval(() => {
-      var c, f, p;
-      this.position.x += this.speed.x * 60 / 1e3, this.position.y -= this.speed.y * 60 / 1e3, this.fadeIn && this.fadeInHandler && this.life >= this.fadeInHandler.initialLife - this.fadeIn.duration && (this.opacity += ((c = this.fadeInHandler) == null ? void 0 : c.deltaOpacity) * (1 / 60), this.opacity = Math.max(0, Math.min(100, this.opacity)), this.size += this.fadeInHandler.deltaSize * (1 / 60), this.size = Math.max(0, this.size)), this.fadeOut && this.fadeOutHandler && this.life <= ((f = this.fadeOut) == null ? void 0 : f.duration) && (this.opacity += ((p = this.fadeOutHandler) == null ? void 0 : p.deltaOpacity) * (1 / 60), this.opacity = Math.max(0, Math.min(100, this.opacity)), this.size += this.fadeOutHandler.deltaSize * (1 / 60), this.size = Math.max(0, this.size)), this.life -= 1 / 60, this.life <= 0 && (clearInterval(t), this.parent.particles.delete(this.id));
+      var l, c, f;
+      this.position.x += this.speed.x * 60 / 1e3, this.position.y -= this.speed.y * 60 / 1e3, this.fadeIn && this.fadeInHandler && this.life >= this.fadeInHandler.initialLife - this.fadeIn.duration && (this.opacity += ((l = this.fadeInHandler) == null ? void 0 : l.deltaOpacity) * (1 / 60), this.opacity = Math.max(0, Math.min(100, this.opacity)), this.size += this.fadeInHandler.deltaSize * (1 / 60), this.size = Math.max(0, this.size)), this.fadeOut && this.fadeOutHandler && this.life <= ((c = this.fadeOut) == null ? void 0 : c.duration) && (this.opacity += ((f = this.fadeOutHandler) == null ? void 0 : f.deltaOpacity) * (1 / 60), this.opacity = Math.max(0, Math.min(100, this.opacity)), this.size += this.fadeOutHandler.deltaSize * (1 / 60), this.size = Math.max(0, this.size)), this.life -= 1 / 60, this.life <= 0 && (clearInterval(t), this.parent.particles.delete(this.id));
     }, this.parent.deltaTime);
   }
 }
-function h(a, t) {
-  return { min: a, max: t };
+function h(s, t) {
+  return { min: s, max: t };
 }
 class n {
   constructor(t, i) {
@@ -109,15 +109,15 @@ class n {
     this.canvas = t, this.canvasSize = i, t.width = i.x, t.height = i.y;
   }
   static getRandomNumberInInterval(t) {
-    const i = Math.ceil(t.min), s = Math.floor(t.max);
-    return Math.floor(Math.random() * (s - i + 1)) + i;
+    const i = Math.ceil(t.min), a = Math.floor(t.max);
+    return Math.floor(Math.random() * (a - i + 1)) + i;
   }
   static getRandomElementFromArray(t) {
     const i = Math.floor(Math.random() * t.length);
     return t[i];
   }
   createParticle() {
-    const t = new y(this.lastId.toString(), this);
+    const t = new x(this.lastId.toString(), this);
     t.position.x = n.getRandomNumberInInterval({ min: 0, max: this.canvasSize.x }), t.position.y = n.getRandomNumberInInterval({ min: 0, max: this.canvasSize.y }), t.size = n.getRandomNumberInInterval(this.size), t.life = n.getRandomNumberInInterval(this.life), t.speed.x = n.getRandomNumberInInterval(this.speed.x), t.speed.y = n.getRandomNumberInInterval(this.speed.y), t.color = n.getRandomElementFromArray(this.colors || new r("fff")), t.opacity = n.getRandomNumberInInterval(this.opacity), t.fadeOut = this.fadeOut, t.fadeIn = this.fadeIn, t.init(), this.particles.set(this.lastId.toString(), t), this.lastId++;
   }
   init() {
@@ -132,16 +132,13 @@ class n {
     }, this.deltaTime);
   }
 }
-const H = {
-  Particle: y,
-  ParticleSystem: n,
-  RGBA: u,
-  HEX: r,
-  range: h,
-  FadeHandler: d,
-  FadeInHandler: m,
-  FadeOutHandler: I
-};
 export {
-  H as default
+  p as FadeHandler,
+  g as FadeInHandler,
+  y as FadeOutHandler,
+  r as HEX,
+  x as Particle,
+  n as ParticleSystem,
+  m as RGBA,
+  h as range
 };

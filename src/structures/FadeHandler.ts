@@ -7,7 +7,7 @@ export default class FadeHandler {
     public deltaSize = 0
     public deltaOpacity = 0
     constructor(parent: Particle, options: FadeOptions) {
-        if (!options.opacity && !options.scaleFactor) throw new TypeError("Can not create a FadeHandler with opacity and scaleFactor both undefined .")
+        if (options.opacity == undefined && options.scaleFactor == undefined) throw new TypeError("Can not create a FadeHandler with opacity and scaleFactor both undefined .")
         this.parent = parent
         this.options = options
     }
@@ -22,7 +22,6 @@ export class FadeOutHandler extends FadeHandler {
     public calculateDeltas() {
         if(this.options.opacity != undefined) this.deltaOpacity = (this.options.opacity - this.parent.opacity) / this.options.duration;
         if(this.options.scaleFactor != undefined) this.deltaSize = (this.options.scaleFactor * this.parent.size - this.parent.size) / this.options.duration;
-        console.log(this)
     }
 }
 

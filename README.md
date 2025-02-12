@@ -24,7 +24,7 @@ const canvas = document.getElementById('canvas') as HTMLCanvasElement
 const system = new particulab.ParticleSystem(canvas, { x: canvas.width, y: canvas.height })
 ```
 
-### Set the ammount of particles to show
+### Set the amount of particles to show
 ```ts
 system.amount = 100
 ```

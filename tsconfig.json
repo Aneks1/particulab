@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "target": "ESNext",
-        "module": "CommonJS",
+        "module": "ESNext",
         "downlevelIteration": true,
         "moduleResolution": "node",
         "outDir": "dist",
@@ -22,5 +22,6 @@
         "esModuleInterop": true,
 
         "lib": ["ESNext", "DOM"]
-    }
+    },
+    "include": ["src", "types"]
 }

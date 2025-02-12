@@ -1,5 +1,10 @@
 # TODO
 
+- SVG loading
+- More default shapes
+
+- Add custom particle prefab to system
+
 - Cursor Gravity
 - Cursor Bubble
-- Fade effect on appear/disappear
+(Yeah basically cursor responsiveness)
