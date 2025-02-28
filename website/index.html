@@ -39,9 +39,9 @@
         const canvas = document.getElementById('container')
         canvas.width = window.innerWidth
         canvas.height = window.innerHeight
-        const system = new particulab.ParticleSystem(canvas, { x: 1600, y: 900 })
+        const system = new particulab.ParticleSystem(canvas, { canvasSize: { x: 1600, y: 900 }})
         system.amount = 100
-        system.size = particulab.range(1, 3)
+        system.size = particulab.range(15, 25)
         system.life = particulab.range(5, 10)
         system.speed = { x: particulab.range(-2, 2), y: particulab.range(-2, 2) }
         system.colors.push(new particulab.HEX("ffffff"))
@@ -49,6 +49,8 @@
         system.opacity = particulab.range(50, 100)
         system.fadeIn = { duration: 1, opacity: 0, scaleFactor: 0.5 }
         system.fadeOut = { duration: 2, opacity: 0, scaleFactor: 2 }
+        system.shapes.push('star')
+        system.shapes.push(new particulab.ParticleImage('assets/Normal.webp'))
         system.init()
 
         const count = document.getElementById('particles')

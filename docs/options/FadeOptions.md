@@ -1,0 +1,4 @@
+# Options
+
+## interface FadeOptions
+

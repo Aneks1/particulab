@@ -1,11 +1,12 @@
-import FadeOptions from "./FadeOptions"
+import FadeOptions from "./Options/FadeOptions"
 import Particle from "./Particle"
 
-export default class FadeHandler {
+export default abstract class FadeHandler {
     public parent: Particle
     public options: FadeOptions
     public deltaSize = 0
     public deltaOpacity = 0
+    public abstract calculateDeltas(): void
     constructor(parent: Particle, options: FadeOptions) {
         if (options.opacity == undefined && options.scaleFactor == undefined) throw new TypeError("Can not create a FadeHandler with opacity and scaleFactor both undefined .")
         this.parent = parent

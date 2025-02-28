@@ -15,7 +15,9 @@
         "noImplicitThis": true,
         "noImplicitReturns": true,
         "noImplicitOverride": true,
-
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "declarationDir": "./types", 
         "forceConsistentCasingInFileNames": true,
         "resolveJsonModule": true,
         "skipLibCheck": false,
