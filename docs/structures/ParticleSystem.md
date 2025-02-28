@@ -14,15 +14,15 @@ amount : [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refere
 
 ***
 
-colors : ([RGBA](../structures/RGBA.md#class-rgba) | [HEX](../structures/HEX.md#class-hex))[]
+colors : ([RGBA](RGBA.md#class-rgba) | [HEX](../structures/HEX.md#class-hex))[]
 
 ***
 
-life : [interval](types.md#type-interval)
+life : [interval](../types.md#type-interval)
 
 ***
 
-opacity : [interval](types.md#type-interval)
+opacity : [interval](../types.md#type-interval)
 
 ***
 
@@ -30,7 +30,7 @@ particles : [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Refere
 
 ***
 
-size : [interval](types.md#type-interval)
+size : [interval](../types.md#type-interval)
 
 ***
 
@@ -38,7 +38,7 @@ shapes : [shapes](../types.md#type-shapes)[]
 
 ***
 
-speed : [vectorInterval](types.md#type-vectorinterval)
+speed : [vectorInterval](../types.md#type-vectorinterval)
 
 ***
 
