@@ -6,7 +6,7 @@
 
 #### constructor(canvas: HTMLCanvasElement, options: [ParticleSystemOptions](../options/ParticleSystemOptions.md#interface-particle-system-options))
 
-***
+___
 
 ### Properties
 
