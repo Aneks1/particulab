@@ -7,7 +7,7 @@ A simple and easy-to-use library to create particles in your website.
 
 ### npm
 ```sh
-$ npm i css-particles
+$ npm i particulab
 ```
 
 ### HMTL Library
@@ -17,41 +17,27 @@ $ npm i css-particles
 
 ## Example
 
+In the following example, a particle system with 100 particles is being created. The properties for the Particle instances are being set in the ParticleSystem.
+
 ### Create the Particle System
 ```ts
 import particulab from 'particulab'
 const canvas = document.getElementById('canvas') as HTMLCanvasElement
 const system = new particulab.ParticleSystem(canvas, { x: canvas.width, y: canvas.height })
-```
 
-### Set the amount of particles to show
-```ts
 system.amount = 100
-```
-
-### Set the properties for the particles
-```ts
 system.size = particulab.range(1, 3)
 system.life = particulab.range(5, 10)
 system.speed = { x: particulab.range(-2, 2), y: particulab.range(-2, 2) }
-system.colors.push(new particulab.HEX("ffffff"))
+system.colors.push(new particulab.HEX("ff0000"))
 system.colors.push(new particulab.RGBA(255, 255, 0, 1))
 system.opacity = particulab.range(50, 100)
-```
 
-### Set fade types
-```ts
 system.fadeIn = { duration: 1, opacity: 0, scaleFactor: 0.5 }
 system.fadeOut = { duration: 2, opacity: 0, scaleFactor: 2 }
-```
 
-### Load custom particle image
-```ts
 system.shapes.push[new ParticleImage('assets/myImage.png')]
-```
 
-### Init the particle system
-```ts
 system.init()
 ```
 
