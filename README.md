@@ -45,4 +45,4 @@ system.shapes.push[new ParticleImage('assets/myImage.png')]
 system.init()
 ```
 
-## [Go to Docs](docs/main.md)
+## [Go to Docs](https://github.com/Aneks1/particulab/wiki)
