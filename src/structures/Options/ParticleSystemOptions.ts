@@ -1,17 +1,17 @@
 import HEX from "../Colors/HEX"
 import RGBA from "../Colors/RGBA"
 import FadeOptions from "./FadeOptions"
-import { interval, vector, vectorInterval, shapes } from "../.."
+import { Interval, Vector, VectorInterval, Shape } from "../.."
 
 export default interface ParticleSystemOptions {
-    canvasSize: vector
+    canvasSize: Vector
     amount?: number
-    size?: interval
-    life?: interval
-    speed?: vectorInterval
+    size?: Interval
+    life?: Interval
+    speed?: VectorInterval
     colors?: (RGBA | HEX)[]
-    opacity?: interval
+    opacity?: Interval
     fadeOut?: FadeOptions
     fadeIn?: FadeOptions,
-    shapes?: shapes[]
+    shapes?: Shape[]
 }

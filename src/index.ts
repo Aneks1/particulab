@@ -9,7 +9,7 @@ import ParticleImage  from "./structures/ParticleImage"
 export { ParticleImage as ParticleImage }
 export { default as ShapeManager } from './structures/ShapeManager'
 
-export type interval = { min: number, max: number }
-export type vectorInterval = { x: interval, y: interval }
-export type vector = { x: number, y: number }
-export type shapes = 'circle' | 'rectangle' | 'triangle' | 'star' | ParticleImage
+export type Interval = { min: number, max: number }
+export type VectorInterval = { x: Interval, y: Interval }
+export type Vector = { x: number, y: number }
+export type Shape = 'circle' | 'rectangle' | 'triangle' | 'star' | ParticleImage

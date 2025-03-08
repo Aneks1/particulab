@@ -1,14 +1,14 @@
 import HEX from "../Colors/HEX";
 import RGBA from "../Colors/RGBA";
 import FadeOptions from "./FadeOptions";
-import { vector, shapes } from "../..";
+import { Vector, Shape } from "../..";
 export default interface ParticleOptions {
     size?: number;
     life?: number;
-    speed?: vector;
+    speed?: Vector;
     color?: RGBA | HEX;
     opacity?: number;
     fadeOut?: FadeOptions;
     fadeIn?: FadeOptions;
-    shape: shapes;
+    shape: Shape;
 }

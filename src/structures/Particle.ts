@@ -6,7 +6,7 @@ import { FadeInHandler, FadeOutHandler } from "./FadeHandler"
 import ParticleOptions from "./Options/ParticleOptions"
 import ParticleImage from "./ParticleImage"
 import ShapeManager from "./ShapeManager"
-import { vector, shapes } from ".."
+import { Vector, Shape } from ".."
 
 export default class Particle {
     private parent: ParticleSystem
@@ -15,13 +15,13 @@ export default class Particle {
     private lastUpdate: number = performance.now()
     private shapeManager: ShapeManager = new ShapeManager()
 
-    public position: vector = { x: 0, y: 0 }
+    public position: Vector = { x: 0, y: 0 }
     public size = 0
     public life = 0
-    public speed: vector = { x: 0, y: 0 }
+    public speed: Vector = { x: 0, y: 0 }
     public color: RGBA | HEX = new HEX("#ffffff") 
     public opacity = 100
-    public shape: shapes = 'circle'
+    public shape: Shape = 'circle'
 
     // Fade Properties
     public fadeOut?: FadeOptions

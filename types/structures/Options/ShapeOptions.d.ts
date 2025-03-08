@@ -1,9 +1,5 @@
-declare type vector = {
-    x: number;
-    y: number;
-};
+import { Vector } from "../..";
 export default interface ShapeOptions {
-    position: vector;
+    position: Vector;
     size: number;
 }
-export {};

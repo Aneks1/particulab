@@ -4,29 +4,29 @@ import RGBA from "./Colors/RGBA"
 import Particle from "./Particle"
 import FadeOptions from "./Options/FadeOptions"
 import ParticleSystemOptions from "./Options/ParticleSystemOptions"
-import { vectorInterval, vector, shapes, interval } from ".."
+import { VectorInterval, Vector, Shape, Interval } from ".."
 
 export default class ParticleSystem {
     private readonly canvas: HTMLCanvasElement
-    private canvasSize: vector
+    private canvasSize: Vector
     private lastId = 0
     public particles: Map<string, Particle> = new Map()
     private _ctx: CanvasRenderingContext2D
     private animationFramId!: number
 
     public amount: number
-    public life: interval
-    public size: interval
-    public speed: vectorInterval
+    public life: Interval
+    public size: Interval
+    public speed: VectorInterval
     public colors: (RGBA | HEX)[]
-    public opacity: interval
+    public opacity: Interval
     public fadeOut?: FadeOptions
     public fadeIn?: FadeOptions
-    public shapes: shapes[]
+    public shapes: Shape[]
 
-    private static numberInRange(invterval: interval) {
-        const min = Math.ceil(invterval.min);
-        const max = Math.floor(invterval.max);
+    private static numberInRange(interval: Interval) {
+        const min = Math.ceil(interval.min);
+        const max = Math.floor(interval.max);
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
