@@ -1,0 +1,1 @@
+import{_ as i,c as a,ae as t,o as h}from"./chunks/framework.ChXEEs3T.js";const g=JSON.parse('{"title":"particulab","description":"","frontmatter":{},"headers":[],"relativePath":"index.md","filePath":"index.md"}'),n={name:"index.md"};function l(k,s,p,e,r,E){return h(),a("div",null,s[0]||(s[0]=[t("",15)]))}const y=i(n,[["render",l]]);export{g as __pageData,y as default};
