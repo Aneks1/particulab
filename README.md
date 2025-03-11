@@ -1,7 +1,7 @@
 # particulab
 A simple and easy-to-use library to create particles in your website.
 
-<a href="https://aneks1.github.io/particulab/" target="_blank"><img src="https://aneks1.github.io/particulab/assets/screenshot.jpg" alt="particulab demo"/></a>
+<a href="https://particulab.vercel.app/" target="_blank"><img src="https://aneks1.github.io/particulab/assets/screenshot.jpg" alt="particulab demo"/></a>
 
 ## Installation
 
@@ -45,4 +45,4 @@ system.shapes.push[new ParticleImage('assets/myImage.png')]
 system.init()
 ```
 
-## [Go to Docs](https://github.com/Aneks1/particulab/wiki)
+## [Go to Docs](https://particulab.vercel.app/docs/)
