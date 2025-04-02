@@ -1,1 +1,1 @@
-export default interface FadeOptions { duration: number, opacity?: number, scaleFactor?: number }
+// export default interface FadeOptions { duration: number, opacity?: number, scaleFactor?: number }

@@ -1,74 +1,67 @@
 import HEX from "./Colors/HEX"
 import RGBA from "./Colors/RGBA"
 import ParticleSystem from "./ParticleSystem"
-import FadeOptions from "./Options/FadeOptions"
-import { FadeInHandler, FadeOutHandler } from "./FadeHandler"
+// import FadeOptions from "./Options/FadeOptions"
+// import { FadeInHandler, FadeOutHandler } from "./FadeHandler"
 import ParticleOptions from "./Options/ParticleOptions"
 import ParticleImage from "./ParticleImage"
 import ShapeManager from "./ShapeManager"
 import { Vector, Shape } from ".."
 
 export default class Particle {
-    private parent: ParticleSystem
+    private readonly parent: ParticleSystem
     private readonly id: string
     private animationFramId!: number
-    private lastUpdate: number = performance.now()
     private shapeManager: ShapeManager = new ShapeManager()
+    private _age: number
 
-    public position: Vector = { x: 0, y: 0 }
-    public size = 0
-    public life = 0
-    public speed: Vector = { x: 0, y: 0 }
-    public color: RGBA | HEX = new HEX("#ffffff") 
-    public opacity = 100
-    public shape: Shape = 'circle'
+    public position: Vector
+    public size: number
+    public readonly lifeSpan: number
+    public speed: Vector
+    public color: RGBA | HEX
+    public opacity: number
+    public shape: Shape
+    public get age() { return this._age }
 
     // Fade Properties
-    public fadeOut?: FadeOptions
-    public fadeIn?: FadeOptions
-    private fadeOutHandler?: FadeOutHandler
-    private fadeInHandler?: FadeInHandler
+    // public fadeOut?: FadeOptions --------- Plugin Manager
+    // public fadeIn?: FadeOptions
+    // private fadeOutHandler?: FadeOutHandler
+    // private fadeInHandler?: FadeInHandler
      
     public init() {
-        if(this.fadeOut && (this.fadeOut.opacity != undefined || this.fadeOut.scaleFactor != undefined)) this.fadeOutHandler = new FadeOutHandler(this, this.fadeOut)
-        if(this.fadeIn && (this.fadeIn.opacity != undefined || this.fadeIn.scaleFactor != undefined)) this.fadeInHandler = new FadeInHandler(this, this.fadeIn)
+        // if(this.fadeOut && (this.fadeOut.opacity != undefined || this.fadeOut.scaleFactor != undefined)) this.fadeOutHandler = new FadeOutHandler(this, this.fadeOut)
+        // if(this.fadeIn && (this.fadeIn.opacity != undefined || this.fadeIn.scaleFactor != undefined)) this.fadeInHandler = new FadeInHandler(this, this.fadeIn)
 
-        this.opacity = this.fadeIn?.opacity != undefined ? this.fadeIn?.opacity : Math.max(0, Math.min(100, this.opacity))
-        this.size = this.fadeIn?.scaleFactor != undefined ? this.fadeIn?.scaleFactor : Math.max(0, this.size)
-        this.life = Math.max(0, this.life)
-
-        this.update()
+        // this.opacity = this.fadeIn?.opacity != undefined ? this.fadeIn?.opacity : Math.max(0, Math.min(100, this.opacity))
+        // this.size = this.fadeIn?.scaleFactor != undefined ? this.fadeIn?.scaleFactor : Math.max(0, this.size)
     }
 
-    private update() {
-        const now = performance.now()
-        const deltaTime = (now - this.lastUpdate) / 1000
-        this.lastUpdate = now
-
+    public update(deltaTime: number) {
         this.position.x += this.speed.x * deltaTime
         this.position.y -= this.speed.y * deltaTime
 
-        if(this.fadeIn && this.fadeInHandler) {
-            if(this.life >= this.fadeInHandler.initialLife - this.fadeIn.duration) {
-                this.opacity += this.fadeInHandler?.deltaOpacity * deltaTime
-                this.opacity = Math.max(0, Math.min(100, this.opacity))
-                this.size += this.fadeInHandler.deltaSize * deltaTime
-                this.size = Math.max(0, this.size)
-            }
-        }
+        // if(this.fadeIn && this.fadeInHandler) {
+        //     if(this.life >= this.fadeInHandler.initialLife - this.fadeIn.duration) {
+        //         this.opacity += this.fadeInHandler?.deltaOpacity * deltaTime
+        //         this.opacity = Math.max(0, Math.min(100, this.opacity))
+        //         this.size += this.fadeInHandler.deltaSize * deltaTime
+        //         this.size = Math.max(0, this.size)
+        //     }
+        // }
 
-        if(this.fadeOut && this.fadeOutHandler) {
-            if(this.life <= this.fadeOut?.duration) {
-                this.opacity += this.fadeOutHandler?.deltaOpacity * deltaTime
-                this.opacity = Math.max(0, Math.min(100, this.opacity))
-                this.size += this.fadeOutHandler.deltaSize * deltaTime
-                this.size = Math.max(0, this.size)
-            }
-        }
+        // if(this.fadeOut && this.fadeOutHandler) {
+        //     if(this.life <= this.fadeOut?.duration) {
+        //         this.opacity += this.fadeOutHandler?.deltaOpacity * deltaTime
+        //         this.opacity = Math.max(0, Math.min(100, this.opacity))
+        //         this.size += this.fadeOutHandler.deltaSize * deltaTime
+        //         this.size = Math.max(0, this.size)
+        //     }
+        // }
 
-        this.life -= 1/60
-        if(this.life <= 0) this.delete()
-        this.animationFramId = requestAnimationFrame(this.update.bind(this))
+        this._age += deltaTime
+        if(this._age >= this.lifeSpan) this.delete()
     }
 
     private delete() {
@@ -97,5 +90,15 @@ export default class Particle {
     constructor(id: string, parent: ParticleSystem, options?: ParticleOptions) {
         this.parent = parent
         this.id = id
+        this._age = 0
+
+        // Set the particle properties
+        this.size = options?.size || 0
+        this.position = options?.position || { x: 0, y: 0 }
+        this.lifeSpan = options?.lifeSpan || 10
+        this.speed = options?.speed || { x: 0, y: 0 }
+        this.color = options?.color || new RGBA(255, 255, 255, 1)
+        this.opacity = options?.opacity || 100
+        this.shape = options?.shape || 'circle'
     }
 }

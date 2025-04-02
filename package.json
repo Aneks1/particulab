@@ -1,6 +1,6 @@
 {
   "name": "particulab",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "main": "dist/particulab.umd.js",
   "module": "dist/particulab.es.js",
   "scripts": {
