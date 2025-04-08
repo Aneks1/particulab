@@ -1,17 +1,14 @@
 import HEX from "../Colors/HEX"
 import RGBA from "../Colors/RGBA"
-// import FadeOptions from "./FadeOptions"
-import { Vector, Shape, ParticleUpdateCallback } from "../.."
+import { Vector, Shape } from "../.."
 
 export default interface ParticleOptions {
-    position?: Vector
-    size?: number
-    lifeSpan?: number
-    speed?: Vector
+    acceleration?: Vector
     color?: RGBA | HEX
+    lifeSpan?: number
+    position?: Vector
     opacity?: number
-    // fadeOut?: FadeOptions
-    // fadeIn?: FadeOptions --------- Plugin
+    size?: number
     shape?: Shape
-    onParticleUpdate?: ParticleUpdateCallback
+    speed?: Vector
 }

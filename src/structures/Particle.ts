@@ -6,7 +6,7 @@ import ParticleSystem from "./ParticleSystem"
 import ParticleOptions from "./Options/ParticleOptions"
 import ParticleImage from "./ParticleImage"
 import ShapeManager from "./ShapeManager"
-import { Vector, Shape } from ".."
+import { Vector, Shape, ParticleUpdateCallback } from ".."
 
 export default class Particle {
     private readonly parent: ParticleSystem
@@ -14,8 +14,11 @@ export default class Particle {
     private animationFramId!: number
     private shapeManager: ShapeManager = new ShapeManager()
     private _age: number
+    private updateMethods: ParticleUpdateCallback[] = []
+    public pluginData: Map<string, Record<string, any>> = new Map()
 
     public position: Vector
+    public acceleration: Vector
     public size: number
     public readonly lifeSpan: number
     public speed: Vector
@@ -41,24 +44,10 @@ export default class Particle {
     public update(deltaTime: number) {
         this.position.x += this.speed.x * deltaTime
         this.position.y -= this.speed.y * deltaTime
+        this.speed.x += this.acceleration.x * deltaTime
+        this.speed.y += this.acceleration.y * deltaTime
 
-        // if(this.fadeIn && this.fadeInHandler) {
-        //     if(this.life >= this.fadeInHandler.initialLife - this.fadeIn.duration) {
-        //         this.opacity += this.fadeInHandler?.deltaOpacity * deltaTime
-        //         this.opacity = Math.max(0, Math.min(100, this.opacity))
-        //         this.size += this.fadeInHandler.deltaSize * deltaTime
-        //         this.size = Math.max(0, this.size)
-        //     }
-        // }
-
-        // if(this.fadeOut && this.fadeOutHandler) {
-        //     if(this.life <= this.fadeOut?.duration) {
-        //         this.opacity += this.fadeOutHandler?.deltaOpacity * deltaTime
-        //         this.opacity = Math.max(0, Math.min(100, this.opacity))
-        //         this.size += this.fadeOutHandler.deltaSize * deltaTime
-        //         this.size = Math.max(0, this.size)
-        //     }
-        // }
+        for (const meth of this.updateMethods) meth(this, deltaTime)
 
         this._age += deltaTime
         if(this._age >= this.lifeSpan) this.delete()
@@ -87,12 +76,18 @@ export default class Particle {
         }
     }
 
+    public onParticleUpdate(callback: ParticleUpdateCallback): ParticleUpdateCallback {
+        this.updateMethods.push(callback)
+        return callback
+    }
+
     constructor(id: string, parent: ParticleSystem, options?: ParticleOptions) {
         this.parent = parent
         this.id = id
         this._age = 0
 
         // Set the particle properties
+        this.acceleration = options?.acceleration || { x: 0, y: 0 }
         this.size = options?.size || 0
         this.position = options?.position || { x: 0, y: 0 }
         this.lifeSpan = options?.lifeSpan || 10

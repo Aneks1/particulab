@@ -2,7 +2,7 @@ import HEX from "./Colors/HEX";
 import RGBA from "./Colors/RGBA";
 import Particle from "./Particle";
 import ParticleSystemOptions from "./Options/ParticleSystemOptions";
-import { VectorInterval, Shape, Interval } from "..";
+import { VectorInterval, Shape, Interval, ParticleCreateCallback } from "..";
 import Plugin from "./Plugin";
 export default class ParticleSystem {
     private readonly canvas;
@@ -12,7 +12,10 @@ export default class ParticleSystem {
     private _ctx;
     private animationFrameId;
     private lastUpdate;
-    private _plugins;
+    private plugins;
+    private updateMethods;
+    private createMethods;
+    pluginData: Map<string, Record<string, any>>;
     amount: number;
     life: Interval;
     size: Interval;
@@ -28,5 +31,6 @@ export default class ParticleSystem {
     private update;
     stop(): void;
     clear(): void;
+    onParticleCreate(callback: ParticleCreateCallback): ParticleCreateCallback;
     constructor(canvas: HTMLCanvasElement, options: ParticleSystemOptions);
 }

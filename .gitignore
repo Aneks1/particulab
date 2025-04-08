@@ -4,3 +4,4 @@ vite.config.ts
 node_modules/
 .npmignore
 /docs/
+/dist/

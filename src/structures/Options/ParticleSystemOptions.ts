@@ -1,6 +1,5 @@
 import HEX from "../Colors/HEX"
 import RGBA from "../Colors/RGBA"
-// import FadeOptions from "./FadeOptions"
 import { Interval, Vector, VectorInterval, Shape, ParticleUpdateCallback } from "../.."
 
 export default interface ParticleSystemOptions {
@@ -9,10 +8,8 @@ export default interface ParticleSystemOptions {
     size?: Interval
     lifeSpan?: Interval
     speed?: VectorInterval
+    acceleration?: VectorInterval
     colors?: (RGBA | HEX)[]
     opacity?: Interval
-    // fadeOut?: FadeOptions
-    // fadeIn?: FadeOptions, ------- Plugin
-    shapes?: Shape[],
-    onParticleUpdate?: ParticleUpdateCallback
+    shapes?: Shape[]
 }

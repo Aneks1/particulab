@@ -7,7 +7,7 @@ export { default as range } from "./utils/range";
 import ParticleImage from "./structures/ParticleImage";
 export { ParticleImage as ParticleImage };
 export { default as ShapeManager } from './structures/ShapeManager';
-export { default as Plugin } from './structures/Plugin';
+export { default as Plugin } from "./structures/Plugin";
 export declare type Interval = {
     min: number;
     max: number;
@@ -22,3 +22,4 @@ export declare type Vector = {
 };
 export declare type Shape = 'circle' | 'rectangle' | 'triangle' | 'star' | ParticleImage;
 export declare type ParticleUpdateCallback = (particle: Particle, deltaTime: number) => void;
+export declare type ParticleCreateCallback = (particle: Particle) => void;

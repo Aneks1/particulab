@@ -1,8 +1,8 @@
 {
   "name": "particulab",
-  "version": "1.4.0",
-  "main": "dist/particulab.umd.js",
-  "module": "dist/particulab.es.js",
+  "version": "1.4.5",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "scripts": {
     "build": "vite build"
   },

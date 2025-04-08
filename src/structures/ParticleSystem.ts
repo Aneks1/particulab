@@ -2,9 +2,8 @@ import range from "../utils/range"
 import HEX from "./Colors/HEX"
 import RGBA from "./Colors/RGBA"
 import Particle from "./Particle"
-// import FadeOptions from "./Options/FadeOptions"
 import ParticleSystemOptions from "./Options/ParticleSystemOptions"
-import { VectorInterval, Vector, Shape, Interval } from ".."
+import { VectorInterval, Vector, Shape, Interval, ParticleCreateCallback, ParticleUpdateCallback } from ".."
 import Plugin from "./Plugin"
 
 export default class ParticleSystem {
@@ -15,16 +14,17 @@ export default class ParticleSystem {
     private _ctx: CanvasRenderingContext2D
     private animationFrameId!: number
     private lastUpdate: number = performance.now()
-    private _plugins: Map<string, Plugin> = new Map()
-
+    private plugins: Map<string, Plugin> = new Map()
+    private updateMethods: ParticleUpdateCallback[] = []
+    private createMethods: ParticleCreateCallback[] = []
+    public pluginData: Map<string, Record<string, any>> = new Map()
+    
     public amount: number
     public life: Interval
     public size: Interval
     public speed: VectorInterval
     public colors: (RGBA | HEX)[]
     public opacity: Interval
-    // public fadeOut?: FadeOptions
-    // public fadeIn?: FadeOptions -------- Plugin
     public shapes: Shape[]
 
     private static numberInRange(interval: Interval) {
@@ -40,7 +40,9 @@ export default class ParticleSystem {
 
     public installPlugin(plugin: Plugin) {
         plugin.setup(this)
-        this._plugins.set(plugin.id, plugin)
+        this.plugins.set(plugin.id, plugin)
+        this.updateMethods.push(plugin.onParticleUpdate)
+        this.createMethods.push(plugin.onParticleCreate)
     }
 
     private createParticle() {
@@ -62,6 +64,9 @@ export default class ParticleSystem {
             shape: ParticleSystem.elementFromArray(this.shapes)
         })
 
+        for(const meth of this.createMethods) meth(particle)
+        for(const meth of this.updateMethods) particle.onParticleUpdate(meth)
+
         particle.init()
         this.particles.set(this.lastId.toString(), particle)
         this.lastId++
@@ -80,7 +85,6 @@ export default class ParticleSystem {
         if(this.particles.size < this.amount) for(let i = this.particles.size; i < this.amount; i++) this.createParticle()
         this._ctx?.clearRect(0, 0, this.canvas.width, this.canvas.height)
         for (const [i, p] of this.particles) {
-            for(const [x, y] of this._plugins) y.applyParticleEffect(p, deltaTime)
             p.update(deltaTime)
             p.draw(this._ctx)
         }
@@ -94,6 +98,11 @@ export default class ParticleSystem {
     public clear() {
         this._ctx?.clearRect(0, 0, this.canvas.width, this.canvas.height)
         this.particles = new Map()
+    }
+
+    public onParticleCreate(callback: ParticleCreateCallback): ParticleCreateCallback {
+        this.createMethods.push(callback)
+        return callback
     }
 
     constructor(canvas: HTMLCanvasElement, options: ParticleSystemOptions) {
@@ -110,8 +119,6 @@ export default class ParticleSystem {
         this.speed = options.speed || { x: range(-10, 10), y: range(-10, 10) }
         this.colors = options.colors || []
         this.opacity = options.opacity || range(50, 100)
-        // this.fadeOut = options.fadeOut
-        // this.fadeIn = options.fadeIn  --- Plugin
         this.shapes = options.shapes || []
     }
 }
