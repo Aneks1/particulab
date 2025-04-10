@@ -1,0 +1,32 @@
+---
+const links = [
+  { text: "Demo", href: "/" },
+  { text: "Docs", href: "/docs" },
+  { text: "GitHub", href: "https://github.com/your-repo" }
+];
+---
+
+<header class="site-header">
+  <nav>
+    <a href="/" class="logo">ParticleSystem</a>
+    <div class="nav-links">
+      {links.map(link => (
+        <a href={link.href}>{link.text}</a>
+      ))}
+    </div>
+  </nav>
+</header>
+
+<style>
+.site-header {
+  padding: 1rem 2rem;
+  background: rgba(0,0,0,0.5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+</style>
