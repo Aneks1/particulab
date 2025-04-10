@@ -1,0 +1,9 @@
+{
+  "version": "independent",
+  "packages": ["packages/*"],
+  "command": {
+    "publish": {
+      "updateInternalDependencies": "patch"
+    }
+  }
+}

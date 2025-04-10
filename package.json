@@ -1,0 +1,21 @@
+{
+  "name": "particulab",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev"
+  },
+  "private": true,
+  "version": "0.0.0",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "A library to create fully customizable particle systems.",
+  "type": "module",
+  "devDependencies": {
+    "lerna": "^8.2.2",
+    "turbo": "^2.5.0"
+  }
+}

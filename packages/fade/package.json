@@ -1,0 +1,29 @@
+{
+  "name": "@particulab/fade",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "paticle system",
+    "animation",
+    "particles",
+    "particle",
+    "stars",
+    "canvas"
+  ],
+  "author": "Aneks",
+  "license": "ISC",
+  "description": "",
+  "peerDependencies": {
+    "@particulab/core": "^1.4.5"
+  },
+  "files": [
+    "dist",
+    "types"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}
