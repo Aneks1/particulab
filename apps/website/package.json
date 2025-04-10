@@ -1,7 +1,8 @@
 {
   "name": "particulab-website",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "private": true,
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -12,7 +13,7 @@
     "@astrojs/starlight": "^0.32.6",
     "@astrojs/vue": "^5.0.9",
     "astro": "^5.6.1",
-    "particulab": "^1.4.3",
+    "particulab": "^2.0.1",
     "vue": "^3.5.13"
   }
 }

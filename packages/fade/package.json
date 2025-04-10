@@ -1,6 +1,6 @@
 {
   "name": "@particulab/fade",
-  "version": "2.0.0",
+  "version": "2.1.2",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,8 +17,9 @@
   "license": "ISC",
   "description": "",
   "peerDependencies": {
-    "@particulab/core": "^2.0.0"
+    "@particulab/core": "^2.0.1"
   },
+  "types": "./types/index.d.ts",
   "files": [
     "dist",
     "types"

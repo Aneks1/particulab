@@ -1,7 +1,8 @@
 {
   "name": "particulab",
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "apps/*"
   ],
   "scripts": {
     "build": "turbo run build",

@@ -1,5 +1,5 @@
 import FadeOptions from "./FadeOptions";
-import { Particle } from "particulab";
+import { Particle } from "@particulab/core";
 export default abstract class FadeHandler {
     parent: Particle;
     options: FadeOptions;

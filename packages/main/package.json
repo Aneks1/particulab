@@ -1,6 +1,6 @@
 {
   "name": "particulab",
-  "version": "1.4.5",
+  "version": "2.0.1",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,5 +11,9 @@
   "description": "A library to create fully customizable particle systems.",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@particulab/core": "^2.0.1",
+    "@particulab/fade": "^2.1.2"
   }
 }
