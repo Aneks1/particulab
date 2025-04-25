@@ -1,0 +1,29 @@
+{
+  "name": "@particulab/fade",
+  "version": "2.1.2",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p ."
+  },
+  "keywords": [
+    "paticle system",
+    "particulab",
+    "animation",
+    "particles",
+    "particle"
+  ],
+  "author": "Aneks",
+  "license": "ISC",
+  "description": "Official fade plugin for particulab",
+  "dependencies": {
+    "@particulab/core": "workspace:*"
+  },
+  "types": "types/index.d.ts",
+  "files": [
+    "dist",
+    "types"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

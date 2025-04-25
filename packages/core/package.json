@@ -1,0 +1,23 @@
+{
+  "name": "@particulab/core",
+  "version": "2.0.1",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p ."
+  },
+  "keywords": [
+    "paticle system",
+    "particulab",
+    "animation",
+    "particles",
+    "particle"
+  ],
+  "author": "Aneks",
+  "license": "ISC",
+  "description": "Library to create particle systems",
+  "types": "types/index.d.ts",
+  "files": [
+    "dist",
+    "types"
+  ]
+}
