@@ -15,7 +15,11 @@ export default class FadePlugin implements Plugin {
         if(!data) return
         if(data.fadeInHandler) {
             if(particle.age <= data.fadeIn.duration) {
-                console.log(particle.opacity)
+                if(particle.age == 0) {
+                    particle.opacity = data.fadeIn.opacity != undefined ? data.fadeIn.opacity : particle.opacity
+                    particle.size = data.fadeIn.scaleFactor != undefined ? data.fadeIn.scaleFactor*particle.size : particle.size
+                }
+
                 particle.opacity += data.fadeInHandler?.deltaOpacity * deltaTime
                 particle.opacity = Math.max(0, Math.min(100, particle.opacity))
                 particle.size += data.fadeInHandler.deltaSize * deltaTime
@@ -33,18 +37,11 @@ export default class FadePlugin implements Plugin {
         }
     }
     onParticleCreate = (particle: Particle) => {
-        console.log(this)
         particle.pluginData.set(this.id, { 
             fadeInHandler: new FadeInHandler(particle, this.options.fadeIn), 
             fadeOutHandler: new FadeOutHandler(particle, this.options.fadeOut),
             ...this.options 
         })
-        const data = particle.pluginData.get(this.id) as { fadeIn: FadeOptions, fadeOut: FadeOptions, fadeInHandler: FadeInHandler, fadeOutHandler: FadeOutHandler }
-        if(!data) return
-        if(data.fadeInHandler) {
-            particle.opacity = data.fadeIn.opacity || particle.opacity
-            particle.size = data.fadeIn.scaleFactor ? data.fadeIn.scaleFactor * particle.size : particle.size
-        }
     }
     constructor(options: { fadeIn: FadeOptions, fadeOut: FadeOptions }) {
         this.options = options

@@ -16,8 +16,8 @@
         </div>
     </div>
 
-    <div id="fps">0 FPS</div>
-    <div id="particles">0 Particles</div>
+    <div id="fps">{{ `${fps} FPS` }}</div>
+    <div id="particles">{{ `${count} Particles` }}</div>
 </template>
 
 <script lang="ts">
@@ -25,67 +25,68 @@ import { defineComponent } from 'vue'
 import * as particulab from 'particulab'
 
 export default defineComponent({
-    mounted() {
+    mounted() { 
         const canvas = document.getElementById('container') as HTMLCanvasElement
 
         const system = new particulab.ParticleSystem(canvas, { 
             canvasSize: { x: window.innerWidth, y: window.innerHeight },
-            amount: 1,
+            amount: 1e3,
             lifeSpan: particulab.range(5, 10)
         })
 
-        system.size = particulab.range(15, 25)
+        system.size = particulab.range(1, 2)
         system.speed = { x: particulab.range(-2, 2), y: particulab.range(-2, 2) }
         system.colors.push(new particulab.HEX("ffffff"))
-        system.colors.push(new particulab.RGBA(255, 255, 0, 1))
-        system.opacity = particulab.range(50, 100)
-        system.shapes.push("star")
+        system.colors.push(new particulab.RGBA(0, 255, 255, 1))
+        system.opacity = particulab.range(25, 100)
+        system.shapes.push("circle")
 
         const fadePlugin = new particulab.FadePlugin({
             fadeIn: {
                 duration: 2,
-                opacity: 0
+                opacity: 0,
+                scaleFactor: 0.5,
+
             },
             fadeOut: {
                 duration: 2,
-                opacity: 0
+                opacity: 0,
+                scaleFactor: 2
             }
         })
         system.installPlugin(fadePlugin)
         system.init()
 
-        const count = document.getElementById('particles') as HTMLElement
-        function updateCount() {
-            count.innerText = system.particles.size + ' Particles'
+        const updateCount = () => {
+            this.count = system.particles.size
             requestAnimationFrame(updateCount)
         }
 
         requestAnimationFrame(updateCount)
+        this.updateFPS()
     },
-
+    data() {
+        return {
+            fps: 0,
+            count: 0
+        }
+    },
     methods: {
         updateFPS() {
-            const fpsCounter = document.getElementById('fps') as HTMLElement
- 
             let lastFrameTime = performance.now()
             let frameCount = 0
-            let fps = 0
 
-            function updateFPS(currentTime: number) {
+            const updateFPS = (currentTime: number) => {
                 frameCount++;
-
                 const delta = currentTime - lastFrameTime
                 if (delta >= 1000) {
-                fps = Math.round((frameCount / delta) * 1000)
-                fpsCounter.textContent = `${fps} FPS`
-                frameCount = 0
-                lastFrameTime = currentTime
+                    this.fps = Math.round((frameCount / delta) * 1000)
+                    frameCount = 0
+                    lastFrameTime = currentTime
                 }
-
                 requestAnimationFrame(updateFPS)
             }
-
-            requestAnimationFrame(updateFPS)
+            updateFPS(0)
         }
     }
 })
