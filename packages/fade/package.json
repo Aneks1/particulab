@@ -1,6 +1,6 @@
 {
   "name": "@particulab/fade",
-  "version": "2.1.2",
+  "version": "2.2.2",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -p ."
@@ -15,7 +15,7 @@
   "author": "Aneks",
   "license": "ISC",
   "description": "Official fade plugin for particulab",
-  "dependencies": {
+  "peerDependencies": {
     "@particulab/core": "workspace:*"
   },
   "types": "types/index.d.ts",

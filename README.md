@@ -1,7 +1,8 @@
-# particulab
+<img src="https://particulab.vercel.app/_astro/logo.wub4nhH8.png" alt="particulab logo"/>
+
 A simple and easy-to-use library to create particles in your website.
 
-<a href="https://particulab.vercel.app/" target="_blank"><img src="https://media.discordapp.net/attachments/1293702593721270343/1359299405773275217/screenshot.jpg?ex=67f6f9b8&is=67f5a838&hm=b7b54b159d9292638ab55d0d58aa6575474678520fdc320f6c535da01c0ad79d" alt="particulab demo"/></a>
+<img src="https://particulab.vercel.app/images/screenshot.jpg" alt="particulab demo"/>
 
 ## Installation
 

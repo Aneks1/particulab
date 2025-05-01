@@ -1,5 +1,32 @@
 # @particulab/fade
 
+## 2.2.2
+
+### Patch Changes
+
+- Bugfix
+- Updated dependencies
+  - @particulab/core@2.1.2
+
+## 2.2.1
+
+### Patch Changes
+
+- Built
+- Updated dependencies
+  - @particulab/core@2.1.1
+
+## 2.2.0
+
+### Minor Changes
+
+- Bugfixed
+
+### Patch Changes
+
+- Updated dependencies
+  - @particulab/core@2.1.0
+
 ## 2.1.2
 
 ### Patch Changes

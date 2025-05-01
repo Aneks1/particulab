@@ -8,6 +8,7 @@
     "preview": "astro preview",
     "astro": "astro"
   },
+  "private": true,
   "dependencies": {
     "@astrojs/mdx": "^4.2.5",
     "@astrojs/starlight": "^0.34.0",
