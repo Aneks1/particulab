@@ -1,0 +1,78 @@
+---
+title: 'ParticleSystem'
+tableOfContents:
+  minHeadingLevel: 1
+  maxHeadingLevel: 4
+---
+
+```ts
+export default class ParticleSystem
+```
+
+## Constructors
+
+##### `constructor` ( ``canvas``: [HTMLCanvasElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement), ``options``: [ParticleSystemOptions](../interfaces/ParticleOptions) )
+
+***
+
+## Properties
+
+##### ``amount`` : [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+The number of particles rendered by the system.
+
+***
+
+##### ``colors`` : (RGBA | HEX)[]
+
+***
+
+##### ``life`` : [Interval](../types/Interval)
+
+***
+
+##### ``opacity`` : [Interval](../types/Interval)
+
+***
+
+##### ``particles`` : [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)&lt;[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), Particle&gt;
+
+***
+
+##### ``size`` : [Interval](../types/Interval)
+
+***
+
+##### ``shapes`` : [Shape](../types/Shape)[]
+
+***
+
+##### ``speed`` : [VectorInterval](../types/VectorInterval)
+
+***
+
+##### ``fadeIn?`` : [FadeOptions](../interfaces/FadeOptions)
+
+***
+
+##### ``fadeOut?`` : [FadeOptions](../interfaces/FadeOptions)
+
+***
+
+## Methods
+
+##### ``init``() : void
+
+Starts the particle system rendering process.
+
+***
+
+##### ``stop``() : void
+
+Stops the particle system update process. Previously rendered particles will still show on screen.
+
+***
+
+##### ``clear``() : void
+
+Removes all particles on screen.
