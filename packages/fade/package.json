@@ -16,7 +16,7 @@
   "license": "ISC",
   "description": "Official fade plugin for particulab",
   "peerDependencies": {
-    "@particulab/core": "workspace:*"
+    "@particulab/core": "2.1.2"
   },
   "types": "types/index.d.ts",
   "files": [

@@ -13,8 +13,8 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@particulab/core": "workspace:*",
-    "@particulab/fade": "workspace:*"
+    "@particulab/core": "2.1.2",
+    "@particulab/fade": "2.2.2"
   },
   "types": "types/index.d.ts",
   "files": [

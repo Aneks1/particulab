@@ -27,3 +27,16 @@
 	--sl-color-gray-7: #f6f6f6;
 	--sl-color-black: #ffffff;
 }
+
+.script-font {
+	font-family: var(--__sl-font-mono);
+	font-weight: 500;
+}
+
+.bold {
+	font-weight: 600;
+}
+
+.large {
+	font-size: large;
+}

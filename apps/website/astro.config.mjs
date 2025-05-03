@@ -16,6 +16,25 @@ export default defineConfig({
             customCss: [
                 './src/styles/docs.css',
             ],
+            defaultLocale: 'en',
+            sidebar: [
+                {
+                    label: 'Introduction',
+                    link: '/docs'
+                },
+                {
+                    label: 'Classes',
+                    autogenerate: {
+                        directory: '/docs/Classes'
+                    }
+                },
+                {
+                    label: 'Types',
+                    autogenerate: {
+                        directory: '/docs/Types'
+                    }
+                }
+            ]
         }), 
         vue(), 
         mdx()

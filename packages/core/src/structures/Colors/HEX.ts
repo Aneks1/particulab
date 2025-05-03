@@ -1,7 +1,7 @@
 import RGBA from "./RGBA"
 
 export default class HEX {
-    public hex: string
+    private hex: string
     constructor(hex: string) {
         if (hex[0] === '#') {
             hex = hex.slice(1);

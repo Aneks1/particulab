@@ -1,0 +1,71 @@
+---
+title: 'ParticleSystem'
+tableOfContents:
+  minHeadingLevel: 1
+  maxHeadingLevel: 4
+---
+
+```ts
+export default class ParticleSystem
+```
+
+## Constructors
+
+##### <span class="script-font">constructor(canvas: [HTMLCanvasElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement), options: [ParticleSystemOptions](../interfaces/ParticleOptions))</span>
+Constructs a new instance of the <span class="script-font bold">ParticleSystem</span> class.
+
+***
+
+## Properties
+
+##### <span class="script-font">amount : [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)</span>
+
+The number of particles rendered by the system.
+
+***
+
+##### <span class="script-font">colors : (RGBA | HEX)[]</span>
+
+***
+
+##### <span class="script-font">life : [Interval](../types/Interval)</span>
+
+***
+
+##### <span class="script-font">opacity : [Interval](../types/Interval)</span>
+
+***
+
+##### <span class="script-font">particles : [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)&lt;[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String), Particle&gt;</span>
+
+***
+
+##### <span class="script-font">size : [Interval](../types/Interval)</span>
+
+***
+
+##### <span class="script-font">shapes : [Shape](../types/Shape)[]</span>
+
+***
+
+##### <span class="script-font">speed : [VectorInterval](../types/VectorInterval)</span>
+
+***
+
+## Methods
+
+##### <span class="script-font">init() : void</span>
+
+Starts the particle system rendering process.
+
+***
+
+##### <span class="script-font">stop() : void</span>
+
+Stops the particle system update process. Previously rendered particles will still show on screen.
+
+***
+
+##### <span class="script-font">clear() : void</span>
+
+Removes all particles on screen.

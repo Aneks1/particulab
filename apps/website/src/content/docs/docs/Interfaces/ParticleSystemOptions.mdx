@@ -1,0 +1,68 @@
+---
+title: 'ParticleSystemOptions'
+---
+
+```ts
+export default interface ParticleSystemOptions
+```
+
+## Properties
+
+#### ``canvasSize`` : [Vector](../types/Vector)
+
+The resolution the canvas will be set to on load.
+
+***
+
+#### ``amount?`` : [number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+
+The amount of particles to be rendered.
+
+***
+
+#### ``colors?`` : (RGBA | HEX)[]
+
+The array of possible colors a particle can take.
+
+***
+
+#### ``fadeIn?`` : [FadeOptions](./FadeOptions)
+
+Options for a fade in transition.
+
+***
+
+#### ``fadeOut?`` : [FadeOptions](./FadeOptions)
+
+Options for a fade out transtion.
+
+***
+
+#### ``life?`` : [Interval](../types/Interval.md)
+
+The lifetime of a particle as a range of possible values.
+
+***
+
+#### ``opacity?`` : [Interval](../types/Interval.md)
+
+The opacity of a particle as a range of possible values.
+
+***
+
+#### ``size?`` : [Interval](../types/Interval.md)
+
+The size of a particle as a range of possible values.
+
+
+***
+
+#### ``shapes?`` : [Shape](../types/Shape)[]
+
+An array of possible shapes a particle can take.
+
+***
+
+#### ``speed?`` : [VectorInterval](../types/VectorInterval)
+
+A 2D vector where x speed and y speed are taken as a range of possible values. 
