@@ -12,10 +12,11 @@ export default defineConfig({
     integrations: [
         starlight({
             title: 'Documentation | particulab',
-            logo: { src: './src/assets/logo.png', replacesTitle: true, alt: 'particulab logo' },
+            logo: { light: './src/assets/logo-light.png', dark:'./src/assets/logo.png', replacesTitle: true, alt: 'particulab logo' },
             customCss: [
                 './src/styles/docs.css',
             ],
+            favicon: './src/favicon.svg',
             defaultLocale: 'en',
             sidebar: [
                 {

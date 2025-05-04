@@ -12,9 +12,9 @@
   "publishConfig": {
     "access": "public"
   },
-  "peerDependencies": {
-    "@particulab/core": "2.1.2",
-    "@particulab/fade": "2.2.2"
+  "dependencies": {
+    "@particulab/core": "workspace:*",
+    "@particulab/fade": "workspace:*"
   },
   "types": "types/index.d.ts",
   "files": [

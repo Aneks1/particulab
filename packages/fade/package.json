@@ -15,8 +15,8 @@
   "author": "Aneks",
   "license": "ISC",
   "description": "Official fade plugin for particulab",
-  "peerDependencies": {
-    "@particulab/core": "2.1.2"
+  "dependencies": {
+    "@particulab/core": "workspace:*"
   },
   "types": "types/index.d.ts",
   "files": [
