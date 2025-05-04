@@ -1,5 +1,15 @@
 # particulab
 
+## 2.1.3
+
+### Patch Changes
+
+- Created reactivity plugin
+- Updated dependencies
+  - @particulab/core@2.1.3
+  - @particulab/fade@2.2.3
+  - @particulab/reactivity@1.0.1
+
 ## 2.1.2
 
 ### Patch Changes

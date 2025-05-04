@@ -15,12 +15,11 @@ export default class Particle {
     acceleration: Vector;
     size: number;
     readonly lifeSpan: number;
-    speed: Vector;
+    velocity: Vector;
     color: RGBA | HEX;
     opacity: number;
     shape: Shape;
     get age(): number;
-    init(): void;
     update(deltaTime: number): void;
     private delete;
     draw(ctx: CanvasRenderingContext2D): void;

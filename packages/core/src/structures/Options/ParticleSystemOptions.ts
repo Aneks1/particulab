@@ -7,7 +7,7 @@ export default interface ParticleSystemOptions {
     amount?: number
     size?: Interval
     lifeSpan?: Interval
-    speed?: VectorInterval
+    velocity?: VectorInterval
     acceleration?: VectorInterval
     colors?: (RGBA | HEX)[]
     opacity?: Interval

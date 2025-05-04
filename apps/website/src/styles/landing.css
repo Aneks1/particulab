@@ -74,7 +74,7 @@ body {
 }
 
 .panel h1::before {
-    content: "v2.0.1";
+    content: "v2.0.2";
     position: absolute;
     bottom: -1rem;
     width: 100%;

@@ -1,0 +1,24 @@
+{
+  "name": "@particulab/reactivity",
+  "version": "1.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.9.0",
+  "dependencies": {
+    "@particulab/core": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "types": "types/index.d.ts",
+  "files": [
+    "dist",
+    "types"
+  ]
+}

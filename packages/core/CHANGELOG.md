@@ -1,5 +1,11 @@
 # @particulab/core
 
+## 2.1.3
+
+### Patch Changes
+
+- Created reactivity plugin
+
 ## 2.1.2
 
 ### Patch Changes

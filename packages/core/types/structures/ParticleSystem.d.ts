@@ -19,11 +19,12 @@ export default class ParticleSystem {
     amount: number;
     life: Interval;
     size: Interval;
-    speed: VectorInterval;
+    velocity: VectorInterval;
+    acceleration: VectorInterval;
     colors: (RGBA | HEX)[];
     opacity: Interval;
     shapes: Shape[];
-    private static numberInRange;
+    static numberInRange(interval: Interval): number;
     private static elementFromArray;
     installPlugin(plugin: Plugin): void;
     private createParticle;

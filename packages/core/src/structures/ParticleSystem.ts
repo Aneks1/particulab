@@ -22,12 +22,13 @@ export default class ParticleSystem {
     public amount: number
     public life: Interval
     public size: Interval
-    public speed: VectorInterval
+    public velocity: VectorInterval
+    public acceleration: VectorInterval
     public colors: (RGBA | HEX)[]
     public opacity: Interval
     public shapes: Shape[]
 
-    private static numberInRange(interval: Interval) {
+    public static numberInRange(interval: Interval) {
         const min = Math.ceil(interval.min);
         const max = Math.floor(interval.max);
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -53,21 +54,22 @@ export default class ParticleSystem {
             },
             size: ParticleSystem.numberInRange(this.size),
             lifeSpan: ParticleSystem.numberInRange(this.life),
-            speed: {
-                x: ParticleSystem.numberInRange(this.speed.x),
-                y: ParticleSystem.numberInRange(this.speed.y)
+            velocity: {
+                x: ParticleSystem.numberInRange(this.velocity.x),
+                y: ParticleSystem.numberInRange(this.velocity.y)
+            },
+            acceleration: {
+                x: ParticleSystem.numberInRange(this.acceleration.x),
+                y: ParticleSystem.numberInRange(this.acceleration.y)
             },
             color: ParticleSystem.elementFromArray(this.colors),
             opacity: ParticleSystem.numberInRange(this.opacity),
-            // fadeIn: this.fadeIn,
-            // fadeOut: this.fadeOut, ---- Plugin
             shape: ParticleSystem.elementFromArray(this.shapes)
         })
 
         for(const meth of this.createMethods) meth(particle)
         for(const meth of this.updateMethods) particle.onParticleUpdate(meth)
 
-        particle.init()
         this.particles.set(this.lastId.toString(), particle)
         this.lastId++
     }
@@ -116,7 +118,8 @@ export default class ParticleSystem {
         this.amount = options.amount || 0
         this.life = options.lifeSpan || range(10, 15)
         this.size = options.size || range(1, 5)
-        this.speed = options.speed || { x: range(-10, 10), y: range(-10, 10) }
+        this.velocity = options.velocity || { x: range(-10, 10), y: range(-10, 10) }
+        this.acceleration = options.acceleration || { x: range(0, 0), y: range(0, 0) }
         this.colors = options.colors || []
         this.opacity = options.opacity || range(50, 100)
         this.shapes = options.shapes || []

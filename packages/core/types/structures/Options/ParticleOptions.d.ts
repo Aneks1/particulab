@@ -9,5 +9,5 @@ export default interface ParticleOptions {
     opacity?: number;
     size?: number;
     shape?: Shape;
-    speed?: Vector;
+    velocity?: Vector;
 }

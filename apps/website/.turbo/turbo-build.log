@@ -2,48 +2,56 @@
 > website@0.0.1 build C:\Users\Gonzalo\Documents\Projects\particulab\apps\website
 > astro build
 
-12:43:01 [vite] Re-optimizing dependencies because vite config has changed
-12:43:02 [content] Syncing content
-12:43:02 [content] Synced content
-12:43:02 [types] Generated 777ms
-12:43:02 [build] output: "static"
-12:43:02 [build] mode: "static"
-12:43:02 [build] directory: C:\Users\Gonzalo\Documents\Projects\particulab\apps\website\dist\
-12:43:02 [build] Collecting build info...
-12:43:02 [build] ✓ Completed in 983ms.
-12:43:02 [build] Building static entrypoints...
-12:43:06 [vite] [32m✓ built in 4.26s[39m
-12:43:06 [build] ✓ Completed in 4.31s.
+16:02:44 [content] Syncing content
+16:02:44 [content] Synced content
+16:02:44 [types] Generated 651ms
+16:02:44 [build] output: "static"
+16:02:44 [build] mode: "static"
+16:02:44 [build] directory: C:\Users\Gonzalo\Documents\Projects\particulab\apps\website\dist\
+16:02:44 [build] Collecting build info...
+16:02:44 [build] ✓ Completed in 895ms.
+16:02:44 [build] Building static entrypoints...
+16:02:48 [vite] [32m✓ built in 4.80s[39m
+16:02:48 [build] ✓ Completed in 4.85s.
 
  building client (vite) 
-12:43:06 [vite] transforming...
-12:43:07 [vite] [32m✓[39m 41 modules transformed.
-12:43:07 [vite] rendering chunks...
-12:43:07 [vite] computing gzip size...
-12:43:07 [vite] [2mdist/[22m[32m_astro/ec.8zarh.js                                                             [39m[1m[2m 2.42 kB[22m[1m[22m
-12:43:07 [vite] [2mdist/[22m[35m_astro/index.C7DhDi_A.css                                                      [39m[1m[2m 1.75 kB[22m[1m[22m[2m │ gzip:  0.66 kB[22m
-12:43:07 [vite] [2mdist/[22m[35m_astro/ec.v4551.css                                                            [39m[1m[2m18.22 kB[22m[1m[22m[2m │ gzip:  3.96 kB[22m
-12:43:07 [vite] [2mdist/[22m[36m_astro/MobileTableOfContents.astro_astro_type_script_index_0_lang.C181hMzK.js  [39m[1m[2m 0.67 kB[22m[1m[22m[2m │ gzip:  0.40 kB[22m
-12:43:07 [vite] [2mdist/[22m[36m_astro/TableOfContents.astro_astro_type_script_index_0_lang.CKWWgpjV.js        [39m[1m[2m 1.67 kB[22m[1m[22m[2m │ gzip:  0.86 kB[22m
-12:43:07 [vite] [2mdist/[22m[36m_astro/page.7qqag-5g.js                                                        [39m[1m[2m 2.17 kB[22m[1m[22m[2m │ gzip:  0.97 kB[22m
-12:43:07 [vite] [2mdist/[22m[36m_astro/Search.astro_astro_type_script_index_0_lang.DMZ5WJ-J.js                 [39m[1m[2m 2.69 kB[22m[1m[22m[2m │ gzip:  1.38 kB[22m
-12:43:07 [vite] [2mdist/[22m[36m_astro/client.D_7EZsB9.js                                                      [39m[1m[2m 7.02 kB[22m[1m[22m[2m │ gzip:  3.27 kB[22m
-12:43:07 [vite] [2mdist/[22m[36m_astro/HomeView.Cl6IL9EG.js                                                    [39m[1m[2m 8.84 kB[22m[1m[22m[2m │ gzip:  3.09 kB[22m
-12:43:07 [vite] [2mdist/[22m[36m_astro/runtime-core.esm-bundler.Dr4Xs2py.js                                    [39m[1m[2m61.43 kB[22m[1m[22m[2m │ gzip: 24.47 kB[22m
-12:43:07 [vite] [2mdist/[22m[36m_astro/ui-core.Ft0Z9wO7.js                                                     [39m[1m[2m68.07 kB[22m[1m[22m[2m │ gzip: 21.71 kB[22m
-12:43:07 [vite] [32m✓ built in 563ms[39m
+16:02:48 [vite] transforming...
+16:02:49 [vite] [32m✓[39m 43 modules transformed.
+16:02:49 [vite] rendering chunks...
+16:02:49 [vite] computing gzip size...
+16:02:49 [vite] [2mdist/[22m[32m_astro/ec.8zarh.js                                                             [39m[1m[2m 2.42 kB[22m[1m[22m
+16:02:49 [vite] [2mdist/[22m[35m_astro/index.BLXWf2PX.css                                                      [39m[1m[2m 1.75 kB[22m[1m[22m[2m │ gzip:  0.66 kB[22m
+16:02:49 [vite] [2mdist/[22m[35m_astro/ec.v4551.css                                                            [39m[1m[2m18.22 kB[22m[1m[22m[2m │ gzip:  3.96 kB[22m
+16:02:49 [vite] [2mdist/[22m[36m_astro/MobileTableOfContents.astro_astro_type_script_index_0_lang.C181hMzK.js  [39m[1m[2m 0.67 kB[22m[1m[22m[2m │ gzip:  0.40 kB[22m
+16:02:49 [vite] [2mdist/[22m[36m_astro/TableOfContents.astro_astro_type_script_index_0_lang.CKWWgpjV.js        [39m[1m[2m 1.67 kB[22m[1m[22m[2m │ gzip:  0.86 kB[22m
+16:02:49 [vite] [2mdist/[22m[36m_astro/page.7qqag-5g.js                                                        [39m[1m[2m 2.17 kB[22m[1m[22m[2m │ gzip:  0.97 kB[22m
+16:02:49 [vite] [2mdist/[22m[36m_astro/Search.astro_astro_type_script_index_0_lang.DMZ5WJ-J.js                 [39m[1m[2m 2.69 kB[22m[1m[22m[2m │ gzip:  1.38 kB[22m
+16:02:49 [vite] [2mdist/[22m[36m_astro/client.D_7EZsB9.js                                                      [39m[1m[2m 7.02 kB[22m[1m[22m[2m │ gzip:  3.27 kB[22m
+16:02:49 [vite] [2mdist/[22m[36m_astro/HomeView.DrP6h-0_.js                                                    [39m[1m[2m 9.98 kB[22m[1m[22m[2m │ gzip:  3.43 kB[22m
+16:02:49 [vite] [2mdist/[22m[36m_astro/runtime-core.esm-bundler.Dr4Xs2py.js                                    [39m[1m[2m61.43 kB[22m[1m[22m[2m │ gzip: 24.47 kB[22m
+16:02:49 [vite] [2mdist/[22m[36m_astro/ui-core.Ft0Z9wO7.js                                                     [39m[1m[2m68.07 kB[22m[1m[22m[2m │ gzip: 21.71 kB[22m
+16:02:49 [vite] [32m✓ built in 678ms[39m
 
  generating static routes 
-12:43:07 ▶ /404
+16:02:49 ▶ /404
 Entry docs → 404 was not found.
-12:43:07   └─ /404.html (+30ms) 
-12:43:07 ▶ /[...slug]
-12:43:07   ├─ /docs/index.html (+33ms) 
-12:43:07   ├─ /classes/particleimage/index.html (+19ms) 
-12:43:07   └─ /classes/particlesystem/index.html (+20ms) 
-12:43:07 ▶ src/pages/index.astro
-12:43:07   └─ /index.html (+12ms) 
-12:43:07 ✓ Completed in 210ms.
+16:02:49   └─ /404.html (+26ms) 
+16:02:49 ▶ /[...slug]
+16:02:49   ├─ /docs/index.html (+18ms) 
+16:02:49   ├─ /docs/interfaces/particleoptions/index.html (+15ms) 
+16:02:49   ├─ /docs/interfaces/fadeoptions/index.html (+8ms) 
+16:02:49   ├─ /docs/types/interval/index.html (+9ms) 
+16:02:49   ├─ /docs/interfaces/particlesystemoptions/index.html (+12ms) 
+16:02:49   ├─ /docs/types/shape/index.html (+9ms) 
+16:02:49   ├─ /docs/types/vector/index.html (+7ms) 
+16:02:49   ├─ /docs/types/vectorinterval/index.html (+12ms) 
+16:02:49   ├─ /docs/classes/hex/index.html (+8ms) 
+16:02:49   ├─ /docs/classes/particleimage/index.html (+7ms) 
+16:02:49   ├─ /docs/classes/particlesystem/index.html (+8ms) 
+16:02:49   └─ /docs/classes/rgba/index.html (+7ms) 
+16:02:49 ▶ src/pages/index.astro
+16:02:49   └─ /index.html (+6ms) 
+16:02:49 ✓ Completed in 245ms.
 
 
 Running Pagefind v1.3.0 (Extended)
@@ -52,7 +60,7 @@ Source:       "..\\..\\..\\..\\..\\..\\apps\\website\\dist"
 Output:       "..\\..\\..\\..\\..\\..\\apps\\website\\dist\\pagefind"
 
 [Walking source directory]
-Found 5 files matching **/*.{html}
+Found 14 files matching **/*.{html}
 
 [Parsing files]
 Found a data-pagefind-body element on the site.
@@ -64,12 +72,12 @@ Discovered 1 language: en
 [Building search indexes]
 Total: 
   Indexed 1 language
-  Indexed 3 pages
-  Indexed 150 words
+  Indexed 12 pages
+  Indexed 207 words
   Indexed 0 filters
   Indexed 0 sorts
 
-Finished in 0.025 seconds
-12:43:09 [WARN] [@astrojs/sitemap] The Sitemap integration requires the `site` astro.config option. Skipping.
-12:43:09 [build] 5 page(s) built in 7.42s
-12:43:09 [build] Complete!
+Finished in 0.052 seconds
+16:02:50 [WARN] [@astrojs/sitemap] The Sitemap integration requires the `site` astro.config option. Skipping.
+16:02:50 [build] 14 page(s) built in 7.67s
+16:02:50 [build] Complete!

@@ -12,27 +12,16 @@ export default class Particle {
     acceleration;
     size;
     lifeSpan;
-    speed;
+    velocity;
     color;
     opacity;
     shape;
     get age() { return this._age; }
-    // Fade Properties
-    // public fadeOut?: FadeOptions --------- Plugin Manager
-    // public fadeIn?: FadeOptions
-    // private fadeOutHandler?: FadeOutHandler
-    // private fadeInHandler?: FadeInHandler
-    init() {
-        // if(this.fadeOut && (this.fadeOut.opacity != undefined || this.fadeOut.scaleFactor != undefined)) this.fadeOutHandler = new FadeOutHandler(this, this.fadeOut)
-        // if(this.fadeIn && (this.fadeIn.opacity != undefined || this.fadeIn.scaleFactor != undefined)) this.fadeInHandler = new FadeInHandler(this, this.fadeIn)
-        // this.opacity = this.fadeIn?.opacity != undefined ? this.fadeIn?.opacity : Math.max(0, Math.min(100, this.opacity))
-        // this.size = this.fadeIn?.scaleFactor != undefined ? this.fadeIn?.scaleFactor : Math.max(0, this.size)
-    }
     update(deltaTime) {
-        this.position.x += this.speed.x * deltaTime;
-        this.position.y -= this.speed.y * deltaTime;
-        this.speed.x += this.acceleration.x * deltaTime;
-        this.speed.y += this.acceleration.y * deltaTime;
+        this.position.x += this.velocity.x * deltaTime;
+        this.position.y -= this.velocity.y * deltaTime;
+        this.velocity.x += this.acceleration.x * deltaTime;
+        this.velocity.y += this.acceleration.y * deltaTime;
         for (const meth of this.updateMethods)
             meth(this, deltaTime);
         this._age += deltaTime;
@@ -79,7 +68,7 @@ export default class Particle {
         this.size = options?.size || 0;
         this.position = options?.position || { x: 0, y: 0 };
         this.lifeSpan = options?.lifeSpan || 10;
-        this.speed = options?.speed || { x: 0, y: 0 };
+        this.velocity = options?.velocity || { x: 0, y: 0 };
         this.color = options?.color || new RGBA(255, 255, 255, 1);
         this.opacity = options?.opacity || 100;
         this.shape = options?.shape || 'circle';

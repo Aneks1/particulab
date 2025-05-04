@@ -58,6 +58,15 @@ importers:
       '@particulab/fade':
         specifier: workspace:*
         version: link:../fade
+      '@particulab/reactivity':
+        specifier: workspace:*
+        version: link:../reactivity
+
+  packages/reactivity:
+    dependencies:
+      '@particulab/core':
+        specifier: workspace:*
+        version: link:../core
 
 packages:
 

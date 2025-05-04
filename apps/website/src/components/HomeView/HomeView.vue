@@ -35,7 +35,7 @@ export default defineComponent({
         })
 
         system.size = particulab.range(1, 2)
-        system.speed = { x: particulab.range(-2, 2), y: particulab.range(-2, 2) }
+        system.velocity = { x: particulab.range(-2, 2), y: particulab.range(-2, 2) }
         system.colors.push(new particulab.HEX("ffffff"))
         system.colors.push(new particulab.RGBA(0, 255, 255, 1))
         system.opacity = particulab.range(25, 100)
@@ -54,6 +54,17 @@ export default defineComponent({
                 scaleFactor: 2
             }
         })
+
+        const reactivityPlugin = new particulab.ReactivityPlugin({
+            mode: 'attract',
+            radius: 100,
+            strength: 100,
+            particleConfig: {
+                mass: particulab.range(1, 1)
+            }
+        })
+
+        system.installPlugin(reactivityPlugin)
         system.installPlugin(fadePlugin)
         system.init()
 
