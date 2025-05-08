@@ -1,17 +1,44 @@
-<img src="https://particulab.vercel.app/_astro/logo.wub4nhH8.png" alt="particulab logo"/>
+<div align="center">
+    <a href="https://particulab.vercel.app">
+        <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="https://particulab.vercel.app/_astro/logo.BdmdAPAp.png"/>
+            <source media="(prefers-color-scheme: light)" srcset="https://particulab.vercel.app/_astro/logo-light.DbNBGWNZ.png"/>
+            <img alt="particulab logo" src="https://particulab.vercel.app/_astro/logo.BdmdAPAp.png" width="500"/>
+        </picture>
+    </a>
+    <br/>
+    <p>
+    	<a href="https://www.npmjs.com/package/particulab"><img src="https://img.shields.io/npm/v/particulab.svg" alt="particulab npm" /></a>
+        <a href="https://www.npmjs.com/package/particulab"><img src="https://img.shields.io/npm/dt/particulab?color=brightgreen" alt="particulab downloads" /></a>
+        <a href="https://particulab.vercel.app"><img src="https://img.shields.io/badge/Demo-Live-blue" alt="particulab demo badge" /></a>
+    </p>
+</div>
 
-A simple and easy-to-use library to create particles in your website.
+✨ A lightweight and customizable JavaScript particle system for stunning interactive visuals — perfect for websites, games, and UI effects.
 
-<img src="https://particulab.vercel.app/images/screenshot.jpg" alt="particulab demo"/>
+---
+
+## Demo
+
+<img src="https://particulab.vercel.app/images/demo.gif" alt="particulab demo"/>
+
+---
+
+## Features
+
+- ⚙️ Fully customizable: colors, shapes, physics, interactivity
+- 🧠 Tiny & fast: minimal bundle size with high performance
+- 🎮 Great for: splash screens, landing pages, and UIs
+
+---
 
 ## Installation
 
-### npm
 ```sh
 $ npm i particulab
 ```
 
-## Example usage
+## Quick Start
 
 In the following example, we are going to create a basic particle system with 100 particles. We want to have red and purple particles which move slowly across the screen.
 
@@ -40,4 +67,11 @@ system.shapes.push[new ParticleImage('assets/myImage.png')]
 system.init()
 ```
 
-## [Go to Docs](https://particulab.vercel.app/docs/)
+## Docs
+
+Check out full usage, options, and examples here:
+👉 https://particulab.vercel.app/docs
+
+---
+
+Built with 🩵 by [Aneks](https://github.com/Aneks1)

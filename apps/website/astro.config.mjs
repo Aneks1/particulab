@@ -16,7 +16,7 @@ export default defineConfig({
             customCss: [
                 './src/styles/docs.css',
             ],
-            favicon: './src/favicon.svg',
+            favicon: './src/favicon.ico',
             defaultLocale: 'en',
             sidebar: [
                 {
