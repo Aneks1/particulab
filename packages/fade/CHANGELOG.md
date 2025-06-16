@@ -1,5 +1,13 @@
 # @particulab/fade
 
+## 2.2.4
+
+### Patch Changes
+
+- Added keywords. Added cursor reactivity.
+- Updated dependencies
+  - @particulab/core@2.1.4
+
 ## 2.2.3
 
 ### Patch Changes

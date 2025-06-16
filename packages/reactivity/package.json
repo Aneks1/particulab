@@ -1,13 +1,21 @@
 {
   "name": "@particulab/reactivity",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -p ."
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "particulab",
+    "particles",
+    "canvas",
+    "visuals",
+    "animation",
+    "interactive",
+    "effects"
+  ],
+  "author": "Aneks",
   "license": "ISC",
   "packageManager": "pnpm@10.9.0",
   "dependencies": {

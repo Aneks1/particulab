@@ -1,12 +1,21 @@
 {
   "name": "particulab",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -p ."
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "particulab",
+    "particles",
+    "particle system",
+    "canvas",
+    "visuals",
+    "animation",
+    "interactive",
+    "effects"
+  ],
+  "author": "Aneks",
   "license": "ISC",
   "description": "A library to create fully customizable particle systems.",
   "publishConfig": {

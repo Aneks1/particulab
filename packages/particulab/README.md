@@ -7,30 +7,27 @@
         </picture>
     </a>
     <br/>
-    <p>
+    <br/>
+    <span>✨ A lightweight and customizable JavaScript particle system for stunning interactive visuals — perfect for websites, games, and UI effects.</span>
+    <br/>
+    <br/>
+    <img src="https://particulab.vercel.app/images/demo.gif" alt="particulab demo"/>
+    <br/>
+    <p style="display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
     	<a href="https://www.npmjs.com/package/particulab"><img src="https://img.shields.io/npm/v/particulab.svg" alt="particulab npm" /></a>
         <a href="https://www.npmjs.com/package/particulab"><img src="https://img.shields.io/npm/dt/particulab?color=brightgreen" alt="particulab downloads" /></a>
         <a href="https://particulab.vercel.app"><img src="https://img.shields.io/badge/Demo-Live-blue" alt="particulab demo badge" /></a>
     </p>
 </div>
 
-✨ A lightweight and customizable JavaScript particle system for stunning interactive visuals — perfect for websites, games, and UI effects.
-
 ---
 
-## Demo
-
-<img src="https://particulab.vercel.app/images/demo.gif" alt="particulab demo"/>
-
----
 
 ## Features
 
 - ⚙️ Fully customizable: colors, shapes, physics, interactivity
 - 🧠 Tiny & fast: minimal bundle size with high performance
 - 🎮 Great for: splash screens, landing pages, and UIs
-
----
 
 ## Installation
 

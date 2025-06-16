@@ -1,16 +1,19 @@
 {
   "name": "@particulab/fade",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -p ."
   },
   "keywords": [
-    "paticle system",
     "particulab",
-    "animation",
     "particles",
-    "particle"
+    "particle system",
+    "canvas",
+    "visuals",
+    "animation",
+    "interactive",
+    "effects"
   ],
   "author": "Aneks",
   "license": "ISC",

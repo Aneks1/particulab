@@ -1,16 +1,19 @@
 {
   "name": "@particulab/core",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -p ."
   },
   "keywords": [
-    "paticle system",
     "particulab",
-    "animation",
     "particles",
-    "particle"
+    "particle system",
+    "canvas",
+    "visuals",
+    "animation",
+    "interactive",
+    "effects"
   ],
   "author": "Aneks",
   "license": "ISC",

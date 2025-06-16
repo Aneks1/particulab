@@ -1,61 +1,67 @@
 
-> website@0.0.1 build C:\Users\Gonzalo\Documents\Projects\particulab\apps\website
+> website@0.0.1 build D:\Projects\particulab\apps\website
 > astro build
 
-16:02:44 [content] Syncing content
-16:02:44 [content] Synced content
-16:02:44 [types] Generated 651ms
-16:02:44 [build] output: "static"
-16:02:44 [build] mode: "static"
-16:02:44 [build] directory: C:\Users\Gonzalo\Documents\Projects\particulab\apps\website\dist\
-16:02:44 [build] Collecting build info...
-16:02:44 [build] ✓ Completed in 895ms.
-16:02:44 [build] Building static entrypoints...
-16:02:48 [vite] [32m✓ built in 4.80s[39m
-16:02:48 [build] ✓ Completed in 4.85s.
+(node:25524) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+19:28:31 [content] Syncing content
+19:28:31 [content] Synced content
+19:28:31 [types] Generated 590ms
+19:28:31 [build] output: "static"
+19:28:31 [build] mode: "static"
+19:28:31 [build] directory: D:\Projects\particulab\apps\website\dist\
+19:28:31 [build] Collecting build info...
+19:28:31 [build] ✓ Completed in 791ms.
+19:28:31 [build] Building static entrypoints...
+19:28:36 [vite] [32m✓ built in 4.38s[39m
+19:28:36 [build] ✓ Completed in 4.43s.
 
  building client (vite) 
-16:02:48 [vite] transforming...
-16:02:49 [vite] [32m✓[39m 43 modules transformed.
-16:02:49 [vite] rendering chunks...
-16:02:49 [vite] computing gzip size...
-16:02:49 [vite] [2mdist/[22m[32m_astro/ec.8zarh.js                                                             [39m[1m[2m 2.42 kB[22m[1m[22m
-16:02:49 [vite] [2mdist/[22m[35m_astro/index.BLXWf2PX.css                                                      [39m[1m[2m 1.75 kB[22m[1m[22m[2m │ gzip:  0.66 kB[22m
-16:02:49 [vite] [2mdist/[22m[35m_astro/ec.v4551.css                                                            [39m[1m[2m18.22 kB[22m[1m[22m[2m │ gzip:  3.96 kB[22m
-16:02:49 [vite] [2mdist/[22m[36m_astro/MobileTableOfContents.astro_astro_type_script_index_0_lang.C181hMzK.js  [39m[1m[2m 0.67 kB[22m[1m[22m[2m │ gzip:  0.40 kB[22m
-16:02:49 [vite] [2mdist/[22m[36m_astro/TableOfContents.astro_astro_type_script_index_0_lang.CKWWgpjV.js        [39m[1m[2m 1.67 kB[22m[1m[22m[2m │ gzip:  0.86 kB[22m
-16:02:49 [vite] [2mdist/[22m[36m_astro/page.7qqag-5g.js                                                        [39m[1m[2m 2.17 kB[22m[1m[22m[2m │ gzip:  0.97 kB[22m
-16:02:49 [vite] [2mdist/[22m[36m_astro/Search.astro_astro_type_script_index_0_lang.DMZ5WJ-J.js                 [39m[1m[2m 2.69 kB[22m[1m[22m[2m │ gzip:  1.38 kB[22m
-16:02:49 [vite] [2mdist/[22m[36m_astro/client.D_7EZsB9.js                                                      [39m[1m[2m 7.02 kB[22m[1m[22m[2m │ gzip:  3.27 kB[22m
-16:02:49 [vite] [2mdist/[22m[36m_astro/HomeView.DrP6h-0_.js                                                    [39m[1m[2m 9.98 kB[22m[1m[22m[2m │ gzip:  3.43 kB[22m
-16:02:49 [vite] [2mdist/[22m[36m_astro/runtime-core.esm-bundler.Dr4Xs2py.js                                    [39m[1m[2m61.43 kB[22m[1m[22m[2m │ gzip: 24.47 kB[22m
-16:02:49 [vite] [2mdist/[22m[36m_astro/ui-core.Ft0Z9wO7.js                                                     [39m[1m[2m68.07 kB[22m[1m[22m[2m │ gzip: 21.71 kB[22m
-16:02:49 [vite] [32m✓ built in 678ms[39m
+19:28:36 [vite] transforming...
+19:28:36 [vite] [32m✓[39m 43 modules transformed.
+19:28:36 [vite] rendering chunks...
+19:28:36 [vite] computing gzip size...
+19:28:36 [vite] [2mdist/[22m[32m_astro/ec.8zarh.js                                                             [39m[1m[2m 2.42 kB[22m[1m[22m
+19:28:36 [vite] [2mdist/[22m[35m_astro/index.BLXWf2PX.css                                                      [39m[1m[2m 1.75 kB[22m[1m[22m[2m │ gzip:  0.66 kB[22m
+19:28:36 [vite] [2mdist/[22m[35m_astro/ec.v4551.css                                                            [39m[1m[2m18.22 kB[22m[1m[22m[2m │ gzip:  3.96 kB[22m
+19:28:36 [vite] [2mdist/[22m[36m_astro/MobileTableOfContents.astro_astro_type_script_index_0_lang.C181hMzK.js  [39m[1m[2m 0.67 kB[22m[1m[22m[2m │ gzip:  0.40 kB[22m
+19:28:36 [vite] [2mdist/[22m[36m_astro/TableOfContents.astro_astro_type_script_index_0_lang.CKWWgpjV.js        [39m[1m[2m 1.67 kB[22m[1m[22m[2m │ gzip:  0.86 kB[22m
+19:28:36 [vite] [2mdist/[22m[36m_astro/page.7qqag-5g.js                                                        [39m[1m[2m 2.17 kB[22m[1m[22m[2m │ gzip:  0.97 kB[22m
+19:28:36 [vite] [2mdist/[22m[36m_astro/Search.astro_astro_type_script_index_0_lang.DMZ5WJ-J.js                 [39m[1m[2m 2.69 kB[22m[1m[22m[2m │ gzip:  1.38 kB[22m
+19:28:36 [vite] [2mdist/[22m[36m_astro/client.D_7EZsB9.js                                                      [39m[1m[2m 7.02 kB[22m[1m[22m[2m │ gzip:  3.27 kB[22m
+19:28:36 [vite] [2mdist/[22m[36m_astro/HomeView.DrP6h-0_.js                                                    [39m[1m[2m 9.98 kB[22m[1m[22m[2m │ gzip:  3.43 kB[22m
+19:28:36 [vite] [2mdist/[22m[36m_astro/runtime-core.esm-bundler.Dr4Xs2py.js                                    [39m[1m[2m61.43 kB[22m[1m[22m[2m │ gzip: 24.47 kB[22m
+19:28:36 [vite] [2mdist/[22m[36m_astro/ui-core.Ft0Z9wO7.js                                                     [39m[1m[2m68.07 kB[22m[1m[22m[2m │ gzip: 21.71 kB[22m
+19:28:36 [vite] [32m✓ built in 596ms[39m
 
  generating static routes 
-16:02:49 ▶ /404
+19:28:36 ▶ /404
 Entry docs → 404 was not found.
-16:02:49   └─ /404.html (+26ms) 
-16:02:49 ▶ /[...slug]
-16:02:49   ├─ /docs/index.html (+18ms) 
-16:02:49   ├─ /docs/interfaces/particleoptions/index.html (+15ms) 
-16:02:49   ├─ /docs/interfaces/fadeoptions/index.html (+8ms) 
-16:02:49   ├─ /docs/types/interval/index.html (+9ms) 
-16:02:49   ├─ /docs/interfaces/particlesystemoptions/index.html (+12ms) 
-16:02:49   ├─ /docs/types/shape/index.html (+9ms) 
-16:02:49   ├─ /docs/types/vector/index.html (+7ms) 
-16:02:49   ├─ /docs/types/vectorinterval/index.html (+12ms) 
-16:02:49   ├─ /docs/classes/hex/index.html (+8ms) 
-16:02:49   ├─ /docs/classes/particleimage/index.html (+7ms) 
-16:02:49   ├─ /docs/classes/particlesystem/index.html (+8ms) 
-16:02:49   └─ /docs/classes/rgba/index.html (+7ms) 
-16:02:49 ▶ src/pages/index.astro
-16:02:49   └─ /index.html (+6ms) 
-16:02:49 ✓ Completed in 245ms.
+19:28:36   └─ /404.html (+38ms) 
+19:28:36 ▶ /[...slug]
+19:28:36   ├─ /docs/index.html (+36ms) 
+19:28:36   ├─ /docs/interfaces/particleoptions/index.html (+18ms) 
+19:28:36   ├─ /docs/interfaces/fadeoptions/index.html (+29ms) 
+19:28:36   ├─ /docs/types/interval/index.html (+22ms) 
+19:28:36   ├─ /docs/interfaces/particlesystemoptions/index.html (+34ms) 
+19:28:37   ├─ /docs/types/shape/index.html (+41ms) 
+19:28:37   ├─ /docs/types/vector/index.html (+26ms) 
+19:28:37   ├─ /docs/types/vectorinterval/index.html (+27ms) 
+19:28:37   ├─ /docs/classes/hex/index.html (+31ms) 
+19:28:37   ├─ /docs/classes/particleimage/index.html (+36ms) 
+19:28:37   ├─ /docs/classes/particlesystem/index.html (+15ms) 
+19:28:37   └─ /docs/classes/rgba/index.html (+18ms) 
+19:28:37 ▶ src/pages/index.astro
+19:28:37   └─ /index.html (+18ms) 
+19:28:37 ✓ Completed in 502ms.
 
+(node:25524) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+npm warn Unknown env config "verify-deps-before-run". This will stop working in the next major version of npm.
+npm warn Unknown env config "_jsr-registry". This will stop working in the next major version of npm.
+npm warn Unknown env config "_particulab-registry". This will stop working in the next major version of npm.
 
 Running Pagefind v1.3.0 (Extended)
-Running from: "C:\\Users\\Gonzalo\\Documents\\Projects\\particulab\\node_modules\\.pnpm\\@astrojs+starlight@0.34.0_a_3b6ffdf85e3b50daf3e39183eef3d62e\\node_modules\\@astrojs\\starlight"
+Running from: "D:\\Projects\\particulab\\node_modules\\.pnpm\\@astrojs+starlight@0.34.0_a_3b6ffdf85e3b50daf3e39183eef3d62e\\node_modules\\@astrojs\\starlight"
 Source:       "..\\..\\..\\..\\..\\..\\apps\\website\\dist"
 Output:       "..\\..\\..\\..\\..\\..\\apps\\website\\dist\\pagefind"
 
@@ -73,11 +79,11 @@ Discovered 1 language: en
 Total: 
   Indexed 1 language
   Indexed 12 pages
-  Indexed 207 words
+  Indexed 234 words
   Indexed 0 filters
   Indexed 0 sorts
 
-Finished in 0.052 seconds
-16:02:50 [WARN] [@astrojs/sitemap] The Sitemap integration requires the `site` astro.config option. Skipping.
-16:02:50 [build] 14 page(s) built in 7.67s
-16:02:50 [build] Complete!
+Finished in 0.049 seconds
+19:28:38 [WARN] [@astrojs/sitemap] The Sitemap integration requires the `site` astro.config option. Skipping.
+19:28:38 [build] 14 page(s) built in 7.97s
+19:28:38 [build] Complete!

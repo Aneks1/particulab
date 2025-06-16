@@ -1,5 +1,11 @@
 # @particulab/core
 
+## 2.1.4
+
+### Patch Changes
+
+- Added keywords. Added cursor reactivity.
+
 ## 2.1.3
 
 ### Patch Changes
