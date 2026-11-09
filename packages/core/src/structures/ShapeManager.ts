@@ -41,6 +41,7 @@ export default class ShapeManager {
     }
 
     public drawImage(img: ParticleImage, ctx: CanvasRenderingContext2D, options: ShapeOptions) {
-        ctx.drawImage(img.element, options.position.x - options.size / 2, options.position.y - options.size / 2, options.size, options.size)
+        // Flip Y coordinates
+        ctx.drawImage(img.element, options.position.x - options.size / 2, -options.position.y + options.size / 2, options.size, options.size)
     }
 }

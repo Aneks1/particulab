@@ -6,6 +6,7 @@ export default interface ParticleSystemOptions {
     canvasSize: Vector
     amount?: number
     size?: Interval
+    mass?: Interval
     lifeSpan?: Interval
     velocity?: VectorInterval
     acceleration?: VectorInterval

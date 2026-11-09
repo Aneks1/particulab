@@ -1,14 +1,16 @@
 import HEX from "../Colors/HEX"
 import RGBA from "../Colors/RGBA"
-import { Vector, Shape } from "../.."
+import { Shape } from "../.."
+import Vector2 from "../Vector2"
 
 export default interface ParticleOptions {
-    acceleration?: Vector
+    acceleration?: Vector2
+    mass?: number
     color?: RGBA | HEX
     lifeSpan?: number
-    position?: Vector
+    position?: Vector2
     opacity?: number
     size?: number
     shape?: Shape
-    velocity?: Vector
+    velocity?: Vector2
 }

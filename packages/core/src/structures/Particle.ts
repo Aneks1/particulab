@@ -4,41 +4,59 @@ import ParticleSystem from "./ParticleSystem"
 import ParticleOptions from "./Options/ParticleOptions"
 import ParticleImage from "./ParticleImage"
 import ShapeManager from "./ShapeManager"
-import { Vector, Shape, ParticleUpdateCallback } from ".."
+import { Shape, ParticleUpdateCallback, Vector } from ".."
+import Vector2 from "./Vector2"
 
 export default class Particle {
     private readonly parent: ParticleSystem
     private readonly id: string
-    private animationFramId!: number
     private shapeManager: ShapeManager = new ShapeManager()
     private _age: number
     private updateMethods: ParticleUpdateCallback[] = []
     public pluginData: Map<string, Record<string, any>> = new Map()
 
-    public position: Vector
-    public acceleration: Vector
+    public position: Vector2
+    public velocity: Vector2
+    public acceleration: Vector2
+    private _mass: number = 1
+    private netForce: Vector2 = Vector2.zero()
+
+    public get mass(): number { return this._mass }
+    public set mass(value: number) {
+    if (!Number.isFinite(value) || value <= 0) {
+        throw new RangeError(
+            "Particle mass must be a finite positive number"
+        )
+    }
+
+    this._mass = value
+}
+
     public size: number
     public readonly lifeSpan: number
-    public velocity: Vector
     public color: RGBA | HEX
     public opacity: number
     public shape: Shape
     public get age() { return this._age }
 
     public update(deltaTime: number) {
-        this.position.x += this.velocity.x * deltaTime
-        this.position.y -= this.velocity.y * deltaTime
-        this.velocity.x += this.acceleration.x * deltaTime
-        this.velocity.y += this.acceleration.y * deltaTime
+        for (const m of this.updateMethods) m(this, deltaTime)
 
-        for (const meth of this.updateMethods) meth(this, deltaTime)
+        const totalAcceleration = Vector2.add(this.acceleration, Vector2.divide(this.netForce, this.mass))
+        this.velocity.add(Vector2.multiply(totalAcceleration, deltaTime))
+        this.position.add(Vector2.multiply(this.velocity, deltaTime))
+
+        this.netForce.set(0, 0)
 
         this._age += deltaTime
         if(this._age >= this.lifeSpan) this.delete()
     }
 
+    public applyForce(force: Vector): void {
+        this.netForce.add(force)
+    }
+
     private delete() {
-        cancelAnimationFrame(this.animationFramId)
         this.parent.particles.delete(this.id)
     }
 
@@ -75,13 +93,16 @@ export default class Particle {
         this._age = 0
 
         // Set the particle properties
-        this.acceleration = options?.acceleration || { x: 0, y: 0 }
-        this.size = options?.size || 0
-        this.position = options?.position || { x: 0, y: 0 }
-        this.lifeSpan = options?.lifeSpan || 10
-        this.velocity = options?.velocity || { x: 0, y: 0 }
-        this.color = options?.color || new RGBA(255, 255, 255, 1)
-        this.opacity = options?.opacity || 100
-        this.shape = options?.shape || 'circle'
+        this.position = Vector2.from(options?.position ?? Vector2.zero())
+        this.velocity = Vector2.from(options?.velocity ?? Vector2.zero())
+        this.acceleration = Vector2.from(options?.acceleration ?? Vector2.zero())
+
+        this.mass = options?.mass ?? 1
+        this.size = options?.size ?? 0
+
+        this.lifeSpan = options?.lifeSpan ?? 10
+        this.color = options?.color ?? new RGBA(255, 255, 255, 1)
+        this.opacity = options?.opacity ?? 100
+        this.shape = options?.shape ?? 'circle'
     }
 }
