@@ -8,6 +8,8 @@ import ParticleImage from "./structures/ParticleImage";
 export { ParticleImage as ParticleImage };
 export { default as ShapeManager } from './structures/ShapeManager';
 export { default as Plugin } from "./structures/Plugin";
+export { default as Emitter } from "./structures/Emitter";
+export { default as Vector2 } from "./structures/Vector2";
 export type Interval = {
     min: number;
     max: number;
@@ -16,10 +18,13 @@ export type VectorInterval = {
     x: Interval;
     y: Interval;
 };
-export type Vector = {
+export interface Vector {
     x: number;
     y: number;
-};
+}
 export type Shape = 'circle' | 'rectangle' | 'triangle' | 'star' | ParticleImage;
 export type ParticleUpdateCallback = (particle: Particle, deltaTime: number) => void;
 export type ParticleCreateCallback = (particle: Particle) => void;
+export type FnInterval = [min: number, max: number];
+export type Coordinates = "cartesian" | "polar";
+export type Condition = "equal" | "greater" | "lower";

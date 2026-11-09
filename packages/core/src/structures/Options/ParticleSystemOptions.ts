@@ -1,6 +1,8 @@
 import HEX from "../Colors/HEX"
 import RGBA from "../Colors/RGBA"
 import { Interval, Vector, VectorInterval, Shape, ParticleUpdateCallback } from "../.."
+import Emitter from "../Emitter"
+import { Coordinates } from "../.."
 
 export default interface ParticleSystemOptions {
     canvasSize: Vector
@@ -13,4 +15,5 @@ export default interface ParticleSystemOptions {
     colors?: (RGBA | HEX)[]
     opacity?: Interval
     shapes?: Shape[]
+    emitter?: Emitter<Coordinates>
 }

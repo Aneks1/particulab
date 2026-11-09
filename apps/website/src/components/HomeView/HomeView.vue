@@ -31,7 +31,15 @@ export default defineComponent({
         const system = new particulab.ParticleSystem(canvas, { 
             canvasSize: { x: window.innerWidth, y: window.innerHeight },
             amount: 1e3,
-            lifeSpan: particulab.range(5, 10)
+            lifeSpan: particulab.range(5, 10),
+            emitter: new particulab.Emitter({
+                coordinates: "cartesian",
+                fn: (x: number) => x,
+                domain: [0, window.innerWidth],
+                range: [0, window.innerHeight],
+                condition: "lower",
+                debug: false,
+            })
         })
 
         system.size = particulab.range(1, 2)

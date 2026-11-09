@@ -56,6 +56,10 @@ export default class Particle {
         this.netForce.add(force)
     }
 
+    private toCanvas(canvasHeight: number): Vector {
+        return { x: this.position.x, y: canvasHeight - this.position.y }
+    }
+
     private delete() {
         this.parent.particles.delete(this.id)
     }
@@ -63,22 +67,25 @@ export default class Particle {
     public draw(ctx: CanvasRenderingContext2D) {
         ctx.fillStyle = this.color.toString()
         ctx.globalAlpha = this.opacity/100
+
+        const canvasPosition = this.toCanvas(ctx.canvas.height)
+
         switch(this.shape) {
             case "circle":
-                this.shapeManager.drawCircle(ctx, { position: this.position, size: this.size })
+                this.shapeManager.drawCircle(ctx, { position: canvasPosition, size: this.size })
                 break
             case "rectangle":
-                this.shapeManager.drawRectangle(ctx, { position: this.position, size: this.size })
+                this.shapeManager.drawRectangle(ctx, { position: canvasPosition, size: this.size })
                 break
             case "triangle":
-                this.shapeManager.drawTriangle(ctx, { position: this.position, size: this.size })
+                this.shapeManager.drawTriangle(ctx, { position: canvasPosition, size: this.size })
                 break
             case "star":
-                this.shapeManager.drawStar(ctx, { position: this.position, size: this.size })
+                this.shapeManager.drawStar(ctx, { position: canvasPosition, size: this.size })
                 break
             default: 
                 if(!(this.shape as ParticleImage).element) console.warn('Invalid shape ' + this.shape)
-                else this.shapeManager.drawImage(this.shape as ParticleImage, ctx, { position: this.position, size: this.size })
+                else this.shapeManager.drawImage(this.shape as ParticleImage, ctx, { position: canvasPosition, size: this.size })
         }
     }
 

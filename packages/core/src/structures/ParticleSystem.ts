@@ -6,6 +6,8 @@ import ParticleSystemOptions from "./Options/ParticleSystemOptions"
 import { VectorInterval, Vector, Shape, Interval, ParticleCreateCallback, ParticleUpdateCallback } from ".."
 import Plugin from "./Plugin"
 import Vector2 from "./Vector2"
+import Emitter from "./Emitter"
+import { Coordinates } from ".."
 
 export default class ParticleSystem {
     private readonly canvas: HTMLCanvasElement
@@ -24,6 +26,7 @@ export default class ParticleSystem {
     private animationFrameId?: number
     private lastUpdate = 0
 
+    public readonly emitter: Emitter<Coordinates>
     // Particle Data
 
     public amount: number
@@ -94,6 +97,8 @@ export default class ParticleSystem {
             p.draw(this._ctx)
         }
 
+        this.emitter.drawDebug(this._ctx)
+
         this.animationFrameId = requestAnimationFrame(this.update.bind(this))
     }
 
@@ -118,12 +123,12 @@ export default class ParticleSystem {
         return callback
     }
 
-    private static randomFloat(interval: Interval): number {
+    public static randomFloat(interval: Interval): number {
         return interval.min +
             Math.random() * (interval.max - interval.min)
     }
 
-    private static randomVector(interval: VectorInterval): Vector2 {
+    public static randomVector(interval: VectorInterval): Vector2 {
         return new Vector2(
             ParticleSystem.randomFloat(interval.x),
             ParticleSystem.randomFloat(interval.y)
@@ -159,5 +164,13 @@ export default class ParticleSystem {
         else this.shapes = options.shapes ?? ["circle"]
         
         this.opacity = options.opacity ?? range(50, 100)
+
+        this.emitter = options.emitter ?? new Emitter({
+            coordinates: "cartesian",
+            fn: (x: number) => 0,
+            domain: [0, this.canvas.width],
+            range: [0, this.canvas.height],
+            position: { x: 0, y: this.canvas.height / 2 }
+        })
     }
 }

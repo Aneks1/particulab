@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
         "target": "ESNext",
-        "module": "nodenext",
-        "moduleResolution": "nodenext",
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
         "strict": true,
         "strictNullChecks": true,
         "strictFunctionTypes": true,

@@ -1,4 +1,4 @@
-import { Particle, ParticleSystem, Plugin, range, Vector } from "@particulab/core"
+import { Particle, ParticleSystem, Plugin, range, Vector, Vector2 } from "@particulab/core"
 import ReactivityOptions from "./ReactivityOptions"
 import ParticleReactivity from "./ParticleReactivity"
 
@@ -33,12 +33,14 @@ export default class ReactivityPlugin implements Plugin {
     }
     onParticleCreate = (particle: Particle) => {
         particle.pluginData.set(this.id, { 
-            mass: ParticleSystem.numberInRange(this.options.particleConfig ? this.options.particleConfig.mass : range(1, 1))
+            mass: ParticleSystem.randomFloat(this.options.particleConfig ? this.options.particleConfig.mass : range(1, 1))
         })
     }
     applyForce(particle: Particle, direction: Vector, mass: number, sign: 1 | -1) {
-        const accelerationMagnitude = this.options.strength ? this.options.strength / mass : 10 / mass
-        particle.acceleration = { x: accelerationMagnitude*direction.x*sign, y: accelerationMagnitude*direction.y*-sign }
+        // const accelerationMagnitude = this.options.strength ? this.options.strength / mass : 10 / mass
+        // particle.acceleration = { x: accelerationMagnitude*direction.x*sign, y: accelerationMagnitude*direction.y*-sign }
+        const force = Vector2.from(direction).multiply(this.options.strength ?? 10)
+        particle.applyForce(force)
     }
     constructor(options: ReactivityOptions) {
         this.options = options

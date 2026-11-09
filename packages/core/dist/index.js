@@ -7,3 +7,5 @@ export { default as range } from "./utils/range";
 import ParticleImage from "./structures/ParticleImage";
 export { ParticleImage as ParticleImage };
 export { default as ShapeManager } from './structures/ShapeManager';
+export { default as Emitter } from "./structures/Emitter";
+export { default as Vector2 } from "./structures/Vector2";

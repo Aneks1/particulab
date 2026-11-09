@@ -33,6 +33,7 @@ export default class ShapeManager {
         ctx.fill();
     }
     drawImage(img, ctx, options) {
-        ctx.drawImage(img.element, options.position.x - options.size / 2, options.position.y - options.size / 2, options.size, options.size);
+        // Flip Y coordinates
+        ctx.drawImage(img.element, options.position.x - options.size / 2, -options.position.y + options.size / 2, options.size, options.size);
     }
 }
